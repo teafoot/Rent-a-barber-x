@@ -1,0 +1,79 @@
+POST localhost:3002/api/v1/user/signup
+{
+    "email": "test@gmail.com",
+    "password": "test"
+}
+{
+    "status": 200,
+    "message": "Sign up success",
+    "body": {
+        "email": "test@gmail.com",
+        "createdAt": "2021-06-01T14:57:51.397Z",
+        "updatedAt": "2021-06-01T14:57:51.397Z",
+        "id_user": "60b64aef7126c512a8d82a3c"
+    }
+}
+
+POST localhost:3002/api/v1/user/login
+{
+    "email": "test@gmail.com",
+    "password": "test"
+}
+{
+    "status": 200,
+    "message": "Login success",
+    "body": {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYjY0YWVmNzEyNmM1MTJhOGQ4MmEzYyIsImlhdCI6MTYyMjU1OTczOCwiZXhwIjoxNjIyNjQ2MTM4fQ.29RApKmbVBJ9a_K7Tg3tEg6kmwKDQfA2_D0frDoGa30"
+    }
+}
+//
+{
+    "email": "testz@gmail.com",
+    "password": "test"
+}
+{
+    "status": 400,
+    "message": "Error: User not found",
+    "body": {}
+}
+//
+{
+    "email": "test@gmail.com",
+    "password": "testz"
+}
+{
+    "status": 400,
+    "message": "Error: Incorrect password",
+    "body": {}
+}
+//
+{
+}
+{
+    "status": 400,
+    "message": "Invalid fields",
+    "body": [
+        {
+            "error": "\"email\" is required",
+            "path": [
+                "email"
+            ]
+        }
+    ]
+}
+//
+{
+    "email": "testz@gmail.com"
+}
+{
+    "status": 400,
+    "message": "Invalid fields",
+    "body": [
+        {
+            "error": "\"password\" is required",
+            "path": [
+                "password"
+            ]
+        }
+    ]
+}

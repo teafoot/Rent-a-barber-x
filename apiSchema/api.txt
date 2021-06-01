@@ -77,3 +77,121 @@ POST localhost:3002/api/v1/user/login
         }
     ]
 }
+
+GET localhost:3002/api/v1/product/
+{
+    "status": 401,
+    "message": "Token missing from header",
+    "body": {}
+}
+//
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYjY0YWVmNzEyNmM1MTJhOGQ4MmEzYyIsImlhdCI6MTYyMjU1OTczOCwiZXhwIjoxNjIyNjQ2MTM4fQ.29RApKmbVBJ9a_K7Tg3tEg6kmwKDQfA2_D0frDoGa30
+{
+    "status": 200,
+    "message": "Product fetched successfully",
+    "body": []
+}
+
+POST localhost:3002/api/v1/product/
+{
+    "name": "name1",
+    "price": 123,
+    "brand": "brand1"
+}
+{
+    "status": 401,
+    "message": "Token missing from header",
+    "body": {}
+}
+//
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYjY0YWVmNzEyNmM1MTJhOGQ4MmEzYyIsImlhdCI6MTYyMjU1OTczOCwiZXhwIjoxNjIyNjQ2MTM4fQ.29RApKmbVBJ9a_K7Tg3tEg6kmwKDQfA2_D0frDoGa30
+{
+    "name": "name1",
+    "price": 123,
+    "brand": "brand1"
+}
+{
+    "status": 200,
+    "message": "Product created successfully",
+    "body": {
+        "name": "name1",
+        "price": 123,
+        "brand": "brand1",
+        "createdAt": "2021-06-01T16:37:49.392Z",
+        "updatedAt": "2021-06-01T16:37:49.392Z",
+        "id_product": "60b6625de1ff713f1003c6a1"
+    }
+}
+
+GET localhost:3002/api/v1/product/60b6625de1ff713f1003c6a1
+{
+    "status": 401,
+    "message": "Token missing from header",
+    "body": {}
+}
+//
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYjY0YWVmNzEyNmM1MTJhOGQ4MmEzYyIsImlhdCI6MTYyMjU1OTczOCwiZXhwIjoxNjIyNjQ2MTM4fQ.29RApKmbVBJ9a_K7Tg3tEg6kmwKDQfA2_D0frDoGa30
+{
+    "status": 200,
+    "message": "Product fetched successfully",
+    "body": {
+        "name": "name1",
+        "price": 123,
+        "brand": "brand1",
+        "createdAt": "2021-06-01T16:37:49.392Z",
+        "updatedAt": "2021-06-01T16:37:49.392Z",
+        "id_product": "60b6625de1ff713f1003c6a1"
+    }
+}
+
+PUT localhost:3002/api/v1/product/60b6625de1ff713f1003c6a1
+{
+    "name": "name2",
+    "price": 321,
+    "brand": "brand2"
+}
+{
+    "status": 401,
+    "message": "Token missing from header",
+    "body": {}
+}
+//
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYjY0YWVmNzEyNmM1MTJhOGQ4MmEzYyIsImlhdCI6MTYyMjU1OTczOCwiZXhwIjoxNjIyNjQ2MTM4fQ.29RApKmbVBJ9a_K7Tg3tEg6kmwKDQfA2_D0frDoGa30
+{
+    "name": "name2",
+    "price": 321,
+    "brand": "brand2"
+}
+{
+    "status": 200,
+    "message": "Product updated successfully",
+    "body": {
+        "name": "name2",
+        "price": 321,
+        "brand": "brand2",
+        "createdAt": "2021-06-01T16:37:49.392Z",
+        "updatedAt": "2021-06-01T16:44:36.310Z",
+        "id_product": "60b6625de1ff713f1003c6a1"
+    }
+}
+
+DELETE localhost:3002/api/v1/product/60b6625de1ff713f1003c6a1
+{
+    "status": 401,
+    "message": "Token missing from header",
+    "body": {}
+}
+//
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYjY0YWVmNzEyNmM1MTJhOGQ4MmEzYyIsImlhdCI6MTYyMjU1OTczOCwiZXhwIjoxNjIyNjQ2MTM4fQ.29RApKmbVBJ9a_K7Tg3tEg6kmwKDQfA2_D0frDoGa30
+{
+    "status": 200,
+    "message": "Product deleted successfully",
+    "body": {
+        "name": "name2",
+        "price": 321,
+        "brand": "brand2",
+        "createdAt": "2021-06-01T16:37:49.392Z",
+        "updatedAt": "2021-06-01T16:44:36.310Z",
+        "id_product": "60b6625de1ff713f1003c6a1"
+    }
+}

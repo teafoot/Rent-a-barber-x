@@ -17,7 +17,7 @@ app.use(function (err, req, res, next) {
 });
 
 app.use('/api/v1/user', require('./routes/userRoutes'));
-// app.use('/api/v1/product', require('./routes/productRoutes'));
+app.use('/api/v1/product', require('./routes/productRoutes'));
 
 app.get('/', (req, res, next) => {
     res.send('Hello from Node API Server');

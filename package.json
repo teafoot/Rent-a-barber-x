@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "watch": "webpack --w --mode development"
   },
   "repository": {
     "type": "git",
@@ -18,16 +19,31 @@
   },
   "homepage": "https://github.com/teafoot/Rent-a-barber-x#readme",
   "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.5",
     "@hapi/joi": "^15.1.0",
     "admin-lte": "^3.1.0",
+    "axios": "^0.18.0",
     "bcrypt": "^3.0.8",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.6.0",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-handlebars": "^3.0.2",
+    "http-errors": "^1.8.0",
+    "jquery": "^3.6.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.8.11"
+    "mongoose": "^5.8.11",
+    "path": "^0.12.7",
+    "sweetalert2": "^8.2.6"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "babel-loader": "^8.0.5"
   }
 }

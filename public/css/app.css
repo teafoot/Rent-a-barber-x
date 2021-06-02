@@ -1,0 +1,120 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; 
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    background-color: #100E17;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.6rem;
+}
+p {
+    font-size: 1.6rem;
+}
+/** Globals **/
+h1, h2, h3  {
+    color: #ffffff;
+    margin: 0;
+}
+h1 {
+    font-weight: 900;
+    font-size: 6rem;
+}
+h2 {
+    font-weight: 700;
+    font-size: 4rem;
+}
+h3 {
+    font-size: 2.8rem;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/** Buttons **/
+.btn {
+    font-size: 1.8rem;
+    padding: 1.4rem 6rem;
+    border-radius: .6rem;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color .3s ease-out;
+    display: block;
+    border:none;
+}
+.btn-green {
+    background-color: #00C897;
+}
+.btn-green:hover {
+    background-color: rgb(10, 155, 119);
+}
+
+.btn-blue {
+    background-color: #00A4B6;
+}
+.btn-blue:hover {
+    background-color: rgb(3, 133, 148);
+}
+
+.btn-yellow {
+    background-color: #F6B15F;
+}
+.btn-red {
+    background-color: #C80045;
+}
+
+/** Header **/
+.vertical-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.horizontal-center {
+    display: flex;
+    justify-content: center;
+}
+
+/** Forms **/
+.default-form {
+    max-width: 800px;
+    margin: 4rem  auto 0 auto; 
+}
+.default-form h3 {
+    color: #616065;
+    font-size: 2.4rem;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    
+}
+.default-form .field {
+    margin-bottom: 3rem;
+    display: flex;   
+}
+.default-form label {
+    padding-top: 1rem;
+    flex: 0 0 18rem;
+    font-size: 1.8rem;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.default-form input[type="email"],
+.default-form input[type="password"],
+.default-form input[type="text"],
+.default-form input[type="number"],
+.default-form input[type="radio"],
+.default-form input[type="file"],
+.default-form select,
+.default-form textarea  {
+    flex: 1;
+    height: 4.5rem;
+    padding: 1rem;
+    font-size: 1.8rem;
+    border-radius: 1rem;
+    border: none;
+}

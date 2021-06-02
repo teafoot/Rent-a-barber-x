@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
+    username: String,
     email: String,
-    password: String
+    password: String,
+    user_type: String,
+    profile_pic: String
 }, {
     timestamps: true,
     toObject: {

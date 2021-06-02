@@ -1,4 +1,4 @@
-POST localhost:3002/api/v1/user/signup
+POST localhost:3002/api/user/signup
 {
     "email": "test@gmail.com",
     "password": "test"
@@ -14,7 +14,7 @@ POST localhost:3002/api/v1/user/signup
     }
 }
 
-POST localhost:3002/api/v1/user/login
+POST localhost:3002/api/user/login
 {
     "email": "test@gmail.com",
     "password": "test"
@@ -78,7 +78,7 @@ POST localhost:3002/api/v1/user/login
     ]
 }
 
-GET localhost:3002/api/v1/product/
+GET localhost:3002/api/product/
 {
     "status": 401,
     "message": "Token missing from header",
@@ -92,7 +92,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYjY0YWVmN
     "body": []
 }
 
-POST localhost:3002/api/v1/product/
+POST localhost:3002/api/product/
 {
     "name": "name1",
     "price": 123,
@@ -123,7 +123,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYjY0YWVmN
     }
 }
 
-GET localhost:3002/api/v1/product/60b6625de1ff713f1003c6a1
+GET localhost:3002/api/product/60b6625de1ff713f1003c6a1
 {
     "status": 401,
     "message": "Token missing from header",
@@ -144,7 +144,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYjY0YWVmN
     }
 }
 
-PUT localhost:3002/api/v1/product/60b6625de1ff713f1003c6a1
+PUT localhost:3002/api/product/60b6625de1ff713f1003c6a1
 {
     "name": "name2",
     "price": 321,
@@ -175,7 +175,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYjY0YWVmN
     }
 }
 
-DELETE localhost:3002/api/v1/product/60b6625de1ff713f1003c6a1
+DELETE localhost:3002/api/product/60b6625de1ff713f1003c6a1
 {
     "status": 401,
     "message": "Token missing from header",

@@ -1,7 +1,7 @@
 const constants = require('../constants/index');
 const mongoose = require('mongoose');
 
-module.exports.formatMongoData = (data) => {
+module.exports.formatMongoData = (data) => { // returns object or array of objects
     if (Array.isArray(data)) {
         let list = [];
 

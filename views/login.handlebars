@@ -1,0 +1,19 @@
+<main class="container">
+    <form id="login-form" action="/api/user/login" method="POST" class="default-form">
+        <div class="field">
+            <label>E-mail</label>
+            <input id="email" type="email" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="field">
+            <label>Password</label>
+            <input id="password" type="password" name="password" placeholder="Your Password" required>
+        </div>
+        <div class="field">
+            <a href="/register">Create Account</a> &nbsp; | &nbsp; 
+            <a href="/reset-password">Forgot Password</a>
+        </div>
+        <div class="field">
+            <input type="submit" value="Login" class="btn btn-blue">
+        </div>
+    </form>
+</main>

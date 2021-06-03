@@ -118,3 +118,20 @@ h3 {
     border-radius: 1rem;
     border: none;
 }
+
+.profile-pic {
+    border-radius:50%;  
+    width:20rem;
+    height:20rem;
+}
+.profile-svg svg[data-icon="user"] {
+    font-size: 20rem !important;
+}
+
+/* .image-upload > input {
+    display: none;
+}
+.image-upload svg {
+    width: 80px;
+    cursor: pointer;
+} */

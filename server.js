@@ -9,6 +9,8 @@ const path = require('path');
 const cors = require('cors');
 const createError = require('http-errors'); // 404
 const cookieParser = require('cookie-parser'); // alternative to localStorage jwt token
+// const session = require('express-session'); // for flash
+// const flash = require('connect-flash'); // flash messages
 
 const app = express();
 app.engine('handlebars',
@@ -28,8 +30,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieParser());
+// app.use(session({
+    // cookie: { maxAge: 60000 },
+    // secret: process.env.SESSION_SECRET_KEY,
+    // resave: false,
+    // saveUninitialized: false
+// }));
+// app.use(flash());
 
-const nm_dependencies = ['jquery', 'popper.js', 'bootstrap', 'admin-lte']; // keep adding required node_modules 
+const nm_dependencies = ['jquery', 'popper.js', 'bootstrap', 'admin-lte', '@fortawesome']; // keep adding required node_modules 
 nm_dependencies.forEach(dep => {
     app.use(`/${dep}`, express.static(path.resolve(`node_modules/${dep}`)));
 });

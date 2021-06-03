@@ -8,7 +8,7 @@ module.exports.validateToken = (req, res, next) => {
         // let token = window.localStorage.getItem("_authToken") // localStorage not defined in Node.js
         let token = req.cookies._authToken;
         if (token) {
-            const decoded = jwt.verify(token, process.env.SECRET_KEY || 'my-secret-key');
+            const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY || 'my-secret-key');
             // console.log(decoded); // { id: '60b6dd64595beb03f045a134', iat: 1622645821, exp: 1622732221 }
             return next();
         }
@@ -18,7 +18,7 @@ module.exports.validateToken = (req, res, next) => {
         }
 
         token = req.headers.authorization.split('Bearer ')[1];
-        const decoded = jwt.verify(token, process.env.SECRET_KEY || 'my-secret-key');
+        const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY || 'my-secret-key');
         // console.log(decoded);
         return next();
     } catch (e) {

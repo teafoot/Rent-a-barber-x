@@ -37,7 +37,7 @@ module.exports.login = async ({ email, password }) => {
             throw new Error(constants.userMessage.INVALID_PASSWORD);
         }
 
-        const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY || 'my-secret-key', { expiresIn: '1d' });
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY || 'my-secret-key', { expiresIn: '1d' });
 
         return { token };
     } catch (e) {
@@ -48,7 +48,7 @@ module.exports.login = async ({ email, password }) => {
 
 module.exports.getUserFromToken = async (token) => {
     try {
-        const decoded = jwt.verify(token, process.env.SECRET_KEY || 'my-secret-key');
+        const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY || 'my-secret-key');
         // console.log(decoded) // { id: '60b6dd64595beb03f045a134', iat: 1622650222, exp: 1622736622 }
         const user = await User.findOne({ "_id": decoded.id })
         // console.log(user) // { email: 'test9@test.com', createdAt: 2021 - 06 - 02T01: 22: 44.055Z, updatedAt: 2021 - 06 - 02T01: 22: 44.055Z, id_user: 60b6dd64595beb03f045a134 }
@@ -62,3 +62,24 @@ module.exports.getUserFromToken = async (token) => {
         throw new Error(e);
     }
 };
+
+module.exports.saveProfile = async (data) => {
+    let { token, profile_image_upload, profile_status } = data;
+
+    try {
+        // const user = await User.findOne({ email });
+        const user = await module.exports.getUserFromToken(token)
+        user.profile_status = profile_status
+
+        if (profile_image_upload) {
+            user.profile_image_upload = profile_image_upload;
+        }
+
+        let result = await user.save();
+        
+        return formatMongoData(result);
+    } catch (e) {
+        console.log('Something went wrong: Service: saveProfile', e);
+        throw new Error(e);
+    }
+}

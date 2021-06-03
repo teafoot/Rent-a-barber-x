@@ -87,4 +87,50 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // $("#file_input").on('change', function (e) {
+    //     // $('#user_profile_picture_form').submit(); // when pressing back arrow in browser it doesn't go back (when file upload fails)
+    // });
+
+    $('#user_profile_form').on('submit', function (e) {
+        e.preventDefault(); // not submit
+
+        // let datos = $(this).serializeArray(); // jQuery.serialize() serializes only input elements, not the "file" data in them.
+        // datos.push({ name: "profile_image_upload", value: fileName });
+
+        const profile_status = document.getElementById("profile_status").value
+        const file = $('#file_input')[0].files[0]
+        var datos = new FormData()
+        datos.append('profile_status', profile_status)
+        datos.append('profile_image_upload', file)
+
+        $.ajax({
+            type: $(this).attr('method'),
+            url: $(this).attr('action'),
+            data: datos,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                console.log(data)
+                Swal.fire(
+                    'Profile saved successfully',
+                    "",
+                    'success'
+                ).then(function () {
+                    window.location.reload()
+                });
+            },
+            error: function (data) {
+                console.log(data);
+                Swal.fire(
+                    'Error saving profile',
+                    "",
+                    'error'
+                ).then(function() {
+                    window.location.reload()
+                });
+            }
+        });
+    });
 });

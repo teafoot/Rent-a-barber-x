@@ -16,7 +16,9 @@ module.exports = {
         LOGIN_SUCCESS: 'Login success',
         DUPLICATE_EMAIL: 'Email address already exists',
         USER_NOT_FOUND: 'User not found',
-        INVALID_PASSWORD: 'Incorrect password'
+        INVALID_PASSWORD: 'Incorrect password',
+        PROFILE_INVALID_SAVE: 'Error saving profile',
+        PROFILE_VALID_SAVE: 'Profile saved successfully'
     },
     requestValidationMessage: {
         BAD_REQUEST: 'Invalid fields',

@@ -21,3 +21,8 @@ module.exports.login = Joi.object().keys({
     email: Joi.string().required(),
     password: Joi.string().required()
 });
+
+module.exports.profile = Joi.object().keys({
+    profile_image_upload: Joi.string().allow(null, ''),
+    profile_status: Joi.string().allow(null, '')
+});

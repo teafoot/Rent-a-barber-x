@@ -5,7 +5,8 @@ const userSchema = new mongoose.Schema({
     email: String,
     password: String,
     user_type: String,
-    profile_pic: String
+    profile_image_upload: String,
+    profile_status: String
 }, {
     timestamps: true,
     toObject: {

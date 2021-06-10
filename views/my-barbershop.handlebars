@@ -1,0 +1,140 @@
+<div class="col-12 mt-3">
+    <div class="card card-primary card-outline card-outline-tabs">
+        <div class="card-header p-0 border-bottom-0">
+            <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="custom-tabs-four-fields-tab" data-toggle="pill"
+                        href="#custom-tabs-four-fields" role="tab" aria-controls="custom-tabs-four-fields"
+                        aria-selected="true">Fields</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-four-preview-tab" data-toggle="pill"
+                        href="#custom-tabs-four-preview" role="tab" aria-controls="custom-tabs-four-preview"
+                        aria-selected="false">Preview</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <div class="tab-content" id="custom-tabs-four-tabContent">
+                <div class="tab-pane fade show active" id="custom-tabs-four-fields" role="tabpanel"
+                    aria-labelledby="custom-tabs-four-fields-tab">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Barbershop fields</h3>
+                        </div>
+                        <form id="my-barbershop-form" action="/api/barbershop/my-barbershop" method="POST">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="">Title</label>
+                                    <input type="text" class="form-control" name="title" placeholder="" value={{{myBarbershop.title}}}>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Description</label>
+                                    <input type="text" class="form-control" name="description" placeholder="" value={{{myBarbershop.description}}}>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Location</label>
+                                    <input type="text" class="form-control" name="location" placeholder="" value={{{myBarbershop.location}}}>
+                                </div>
+                                <label for="">Services</label>
+                                <button class="add_service_button w3-margin-bottom">Add a service</button>
+                                <div class="da-floatbox">
+                                    {{#each myBarbershop.services}}
+                                    <div class="form-group w3-margin-bottom da-item w3-col s12 m6 l4">
+                                        <div class="da-content">
+                                            <label for="" class="w3-margin-right">Service {{counter @index}}</label>
+                                            <div class="removeService fas fa-trash w3-right" id="{{{id_service}}}"></div><br><br>
+                                            <label for="">Title</label>
+                                            <input type="text" class="w3-input" name="myServices[{{{id_service}}}][service_title]" value="{{{service_title}}}"><br>
+                                            <label for="">Description</label>
+                                            <input type="text" class="w3-input" name="myServices[{{{id_service}}}][service_description]"
+                                                value="{{{service_description}}}"><br>
+                                            <label for="">Price</label>
+                                            <input type="text" class="w3-input" name="myServices[{{{id_service}}}][service_price]" value="{{{service_price}}}">
+                                        </div>
+                                    </div>
+                                    {{/each}}
+                                    {{!-- <div class="form-group w3-margin-bottom w3-border w3-border-gray w3-padding">
+                                        <label for="" class="w3-margin-right">Service 1</label>
+                                        <div class="removeService fas fa-trash"></div><br>
+                                        <label for="">Title</label>
+                                        <input type="text" class="w3-input" name="myServices[][title]"><br>
+                                        <label for="">Description</label>
+                                        <input type="text" class="w3-input" name="myServices[][description]"><br>
+                                        <label for="">Price</label>
+                                        <input type="text" class="w3-input" name="myServices[][price]">
+                                    </div> --}}
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn-sm btn-success w3-bar">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="custom-tabs-four-preview" role="tabpanel"
+                    aria-labelledby="custom-tabs-four-preview-tab">
+                    <div class="card card-primary w3-center">
+                        <div class="card-header">
+                            <h3 class="card-title">Welcome to {{{user.username}}}'s barbershop</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <p>{{{myBarbershop.title}}}</p>
+                            </div>
+                            <div class="form-group">
+                                <p>{{{myBarbershop.description}}}</p>
+                            </div>
+                            <div class="form-group">
+                                <p>{{{myBarbershop.location}}}</p>
+                            </div>
+                            <div class="w3-margin">
+                                <div class="w3-padding w3-black w3-margin-bottom">
+                                    <h4>Services</h4>
+                                </div>
+                                <div class="da-floatbox">
+                                    {{#each myBarbershop.services}}
+                                    <div class="w3-margin-bottom da-item w3-col s12 m6 l4">
+                                        <div class="da-content">
+                                            <b>
+                                                <p>{{{service_title}}}</p>
+                                            </b>
+                                            <p>{{{service_description}}}</p>
+                                            <p>${{{service_price}}}</p>
+                                        </div>
+                                    </div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- <div class="da-floatbox">
+    <div class="da-item w3-col s12 m6 l4" style="border: 1px solid black;">
+        <div class="da-content">
+            <p>11111</p>
+        </div>
+    </div>
+    <div class="da-item w3-col s12 m6 l4" style="border: 1px solid black;">
+        <div class="da-content">
+            <p>22222</p>
+        </div>
+    </div>
+    <div class="da-item w3-col s12 m6 l4" style="border: 1px solid black;">
+        <div class="da-content">
+            <p>33333</p>
+        </div>
+    </div>
+    <div class="da-item w3-col s12 m6 l4" style="border: 1px solid black;">
+        <div class="da-content">
+            <p>44444</p>
+        </div>
+    </div>
+</div> --}}

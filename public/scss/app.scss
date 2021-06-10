@@ -1,0 +1,243 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; 
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    background-color: #c5c5c5;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.6rem;
+}
+p {
+    font-size: 1.6rem;
+}
+/** Globals **/
+h1, h2, h3  {
+    color: #ffffff;
+    margin: 0;
+}
+h1 {
+    font-weight: 900;
+    font-size: 6rem;
+}
+h2 {
+    font-weight: 700;
+    font-size: 4rem;
+}
+h3 {
+    font-size: 2.8rem;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/** Buttons **/
+.btn {
+    font-size: 1.8rem;
+    padding: 1.4rem 6rem;
+    border-radius: .6rem;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color .3s ease-out;
+    display: block;
+    border:none;
+}
+.btn-green {
+    background-color: #00C897;
+}
+.btn-green:hover {
+    background-color: rgb(10, 155, 119);
+}
+
+.btn-blue {
+    background-color: #00A4B6;
+}
+.btn-blue:hover {
+    background-color: rgb(3, 133, 148);
+}
+
+.btn-yellow {
+    background-color: #F6B15F;
+}
+.btn-red {
+    background-color: #C80045;
+}
+
+/** Header **/
+.vertical-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.horizontal-center {
+    display: flex;
+    justify-content: center;
+}
+
+/** Forms **/
+.default-form {
+    max-width: 800px;
+    margin: 4rem  auto 0 auto; 
+}
+.default-form h3 {
+    color: #616065;
+    font-size: 2.4rem;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    
+}
+.default-form .field {
+    margin-bottom: 3rem;
+    display: flex;   
+}
+.default-form label {
+    padding-top: 1rem;
+    flex: 0 0 18rem;
+    font-size: 1.8rem;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.default-form input[type="email"],
+.default-form input[type="password"],
+.default-form input[type="text"],
+.default-form input[type="number"],
+.default-form input[type="radio"],
+.default-form input[type="file"],
+.default-form select,
+.default-form textarea  {
+    flex: 1;
+    height: 4.5rem;
+    padding: 1rem;
+    font-size: 1.8rem;
+    border-radius: 1rem;
+    border: none;
+}
+
+.profile-pic {
+    border-radius:50%;  
+    width:20rem;
+    height:20rem;
+}
+.profile-svg svg[data-icon="user"] {
+    font-size: 20rem !important;
+}
+
+/* .image-upload > input {
+    display: none;
+}
+.image-upload svg {
+    width: 80px;
+    cursor: pointer;
+} */
+
+// For Floats 
+
+.da-floatbox {
+  display: block;
+  box-sizing: border-box;
+  margin: 0px -10px;
+}
+
+.da-floatbox::after { // same as w3-container?
+  clear: both;
+  content: '';
+  display: block;
+}
+
+.da-item { // use with w3-col s12 m6 l4 for responsiveness
+  box-sizing: border-box;
+//   float: left;
+//   width: 100%;
+  margin-bottom: 20px;
+  padding: 0px 10px;
+}
+
+// .da-row::after {
+//   content: "";
+//   clear: both;
+//   display: table;
+// }
+
+// .da-item:nth-child(2n + 1) {
+//   clear: both;
+// }
+
+.da-content {
+  box-sizing: border-box;
+//   text-align: center;
+//   background-color: #3dcf5b;
+//   color: #242424;
+  border: 1px solid gray;
+  height: 100%;
+  padding: 10px;
+}
+
+// For images
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// [class*="col-"] {
+//   float: left;
+//   padding: 15px;
+//   border: 1px solid red;
+// }
+
+// Media Queries
+
+@media only screen and (min-width: 0px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+
+  .services_wrap {
+    label {
+        display: inline-block;
+        width: 150px;
+    }   
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+
+// @media only screen and (orientation: landscape) {
+// }

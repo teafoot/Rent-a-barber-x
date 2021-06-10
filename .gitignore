@@ -4,3 +4,5 @@ node_modules
 
 public/dist
 public/uploads/profile-pictures
+
+public/css/app.css

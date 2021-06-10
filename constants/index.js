@@ -20,9 +20,18 @@ module.exports = {
         PROFILE_INVALID_SAVE: 'Error saving profile',
         PROFILE_VALID_SAVE: 'Profile saved successfully'
     },
+    barbershopMessage: {
+        REGISTRATION_SUCCESS: 'Registered success',
+        REGISTRATION_FAILURE: 'Failed in registering',
+        BARBERSHOP_SERVICE_CREATION_SUCCESS: 'Barbershop service registered successfully',
+        BARBERSHOP_SERVICE_CREATION_FAILURE: 'Failed registering barbershop service',
+        BARBERSHOP_SERVICE_DELETION_SUCCESS: 'Barbershop service deletion successful',
+        BARBERSHOP_SERVICE_DELETION_FAILURE: 'Failed deleting barbershop service',
+    },
     requestValidationMessage: {
         BAD_REQUEST: 'Invalid fields',
-        TOKEN_MISSING: 'Token missing from header'
+        TOKEN_MISSING: 'Token missing from header',
+        NOT_BARBER: 'Not a barber'
     },
     databaseMessage: {
         INVALID_ID: 'Invalid ID'

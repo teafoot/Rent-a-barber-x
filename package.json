@@ -4,9 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
-    "watch": "webpack --w --mode development"
+    "node-start": "node server.js",
+    "node-dev": "nodemon server.js",
+    "webpack-watch": "webpack --w --mode development",
+    "scss": "node-sass ./public/scss -o ./public/css",
+    "scss:watch": "npm run scss && node-sass --watch ./public/scss -o ./public/css"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,7 @@
     "bcrypt": "^3.0.8",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.6.0",
+    "bootswatch": "^4.6.0",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
@@ -40,9 +43,12 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.8.11",
     "multer": "^1.4.1",
+    "node-sass": "^6.0.0",
+    "normalize.css": "^8.0.1",
     "path": "^0.12.7",
     "shortid": "^2.2.14",
-    "sweetalert2": "^8.2.6"
+    "sweetalert2": "^8.2.6",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.2",

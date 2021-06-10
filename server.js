@@ -38,13 +38,14 @@ app.use(cookieParser());
 // }));
 // app.use(flash());
 
-const nm_dependencies = ['jquery', 'popper.js', 'bootstrap', 'admin-lte', '@fortawesome']; // keep adding required node_modules 
+const nm_dependencies = ['jquery', 'popper.js', 'bootstrap', 'admin-lte', 'bootswatch', '@fortawesome', 'normalize.css']; // keep adding required node_modules 
 nm_dependencies.forEach(dep => {
     app.use(`/${dep}`, express.static(path.resolve(`node_modules/${dep}`)));
 });
 
 app.use('/', require('./routes/webRoutes'));
 app.use('/api/user', require('./routes/userApiRoutes'));
+app.use('/api/barbershop', require('./routes/barbershopApiRoutes'));
 app.use('/api/product', require('./routes/productRoutes'));
 // 404 not found
 app.use((req, res, next) => {

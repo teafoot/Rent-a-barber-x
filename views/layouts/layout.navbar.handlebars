@@ -5,11 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel='shortcut icon' type='image/x-icon' href='/img/logo.ico' />
+    {{!-- <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" /> --}}
     {{!--
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css"> --}}
     <link rel="stylesheet" href="/admin-lte/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="/bootswatch/dist/sandstone/bootstrap.min.css" />
+    <link rel="stylesheet" href="/normalize.css/normalize.css">
     <link rel="stylesheet" href="/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/css/w3.css">
     <link rel="stylesheet" href="/css/app.css">
     <title>{{pageTitle}}</title>
 </head>
@@ -47,6 +51,9 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/profile">My Profile</a>
+                        {{#ifEquals user.user_type "barber"}}
+                        <a class="dropdown-item" href="/my-barbershop">My Barbershop</a>
+                        {{/ifEquals}}
                         <a class="dropdown-item" href="/logout">Logout</a>
                     </div>
                 </li>

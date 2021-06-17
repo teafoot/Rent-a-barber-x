@@ -37,7 +37,7 @@ module.exports.login = async ({ email, password }) => {
             throw new Error(constants.userMessage.INVALID_PASSWORD);
         }
 
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY || 'my-secret-key', { expiresIn: '1d' });
+        const token = jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET_KEY || 'my-secret-key', { expiresIn: '1d' });
 
         return { token };
     } catch (e) {
@@ -50,7 +50,8 @@ module.exports.getUserFromToken = async (token) => {
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY || 'my-secret-key');
         // console.log(decoded) // { id: '60b6dd64595beb03f045a134', iat: 1622650222, exp: 1622736622 }
-        const user = await User.findOne({ "_id": decoded.id })
+        // const user = await User.findOne({ "_id": decoded.id }) // not working anymore for some reason...
+        const user = await User.findOne({ "email": decoded.email })
         // console.log(user) // { email: 'test9@test.com', createdAt: 2021 - 06 - 02T01: 22: 44.055Z, updatedAt: 2021 - 06 - 02T01: 22: 44.055Z, id_user: 60b6dd64595beb03f045a134 }
         if (!user) {
             throw new Error(constants.userMessage.USER_NOT_FOUND);
@@ -59,6 +60,62 @@ module.exports.getUserFromToken = async (token) => {
         return user
     } catch (e) {
         console.log('Something went wrong: Service: getUserFromToken', e);
+        throw new Error(e);
+    }
+};
+
+module.exports.getUserById = async (id) => {
+    try {
+        const user = await User.findOne({"_id": id})
+        if (!user) {
+            throw new Error(constants.userMessage.USER_NOT_FOUND);
+        }
+
+        return user
+    } catch (e) {
+        console.log('Something went wrong: Service: getUserById', e);
+        throw new Error(e);
+    }
+}
+
+module.exports.getAllBarbers = async () => {
+    try {
+        const barbers = await User.find({ "user_type": "barber" })
+        if (!barbers) {
+            throw new Error(constants.userMessage.BARBERS_NOT_FOUND);
+        }
+
+        return barbers
+    } catch (e) {
+        console.log('Something went wrong: Service: getAllBarbers', e);
+        throw new Error(e);
+    }
+};
+
+module.exports.getBarbersWhere = async (query) => {
+    try {
+        if (query != "") {
+            let barbers = await User.find({
+                $or: [
+                    { username: { $regex: ".*" + query + ".*", $options: 'i' } }
+                ],
+                $and: [
+                    { user_type: { $eq: "barber" }}
+                ]
+            }, function (err, result) {
+                // console.log(err);
+            });
+            // console.log(formatMongoData(barbers))
+            return formatMongoData(barbers);
+        } else {
+            const barbers = await User.find({ "user_type": "barber" })
+            if (!barbers) {
+                throw new Error(constants.userMessage.BARBERS_NOT_FOUND);
+            }
+            return formatMongoData(barbers);
+        }
+    } catch (e) {
+        console.log('Something went wrong: Service: getBarbersWhere', e);
         throw new Error(e);
     }
 };

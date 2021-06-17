@@ -16,6 +16,7 @@ module.exports = {
         LOGIN_SUCCESS: 'Login success',
         DUPLICATE_EMAIL: 'Email address already exists',
         USER_NOT_FOUND: 'User not found',
+        BARBERS_NOT_FOUND: 'Barbers not found',
         INVALID_PASSWORD: 'Incorrect password',
         PROFILE_INVALID_SAVE: 'Error saving profile',
         PROFILE_VALID_SAVE: 'Profile saved successfully'
@@ -27,6 +28,7 @@ module.exports = {
         BARBERSHOP_SERVICE_CREATION_FAILURE: 'Failed registering barbershop service',
         BARBERSHOP_SERVICE_DELETION_SUCCESS: 'Barbershop service deletion successful',
         BARBERSHOP_SERVICE_DELETION_FAILURE: 'Failed deleting barbershop service',
+        BARBERSHOP_NOT_FOUND: 'Barbershop not found',
     },
     requestValidationMessage: {
         BAD_REQUEST: 'Invalid fields',

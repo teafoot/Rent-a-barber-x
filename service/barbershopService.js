@@ -118,3 +118,63 @@ module.exports.deleteBarbershopService = async (data) => {
         throw new Error(e);
     }
 };
+
+module.exports.getAllBarbershops = async () => {
+    try {
+        let barbershops = await Barbershop.find();
+        return formatMongoData(barbershops);
+    } catch (e) {
+        console.log('Something went wrong: Service: getAllBarbershops', e);
+        throw new Error(e);
+    }
+};
+
+module.exports.getBarbershopsWhere = async (query) => {
+    try {
+        if (query!="") {
+            let barbershops = await Barbershop.find({ $or: [
+                {title: { $regex: ".*" + query + ".*", $options: 'i' }},
+                {description: { $regex: ".*" + query + ".*", $options: 'i' }},
+                {location: { $regex: ".*" + query + ".*", $options: 'i' }}
+            ]}, function (err, result) {
+                // console.log(err);
+            });
+            // console.log(formatMongoData(barbershops))
+            return formatMongoData(barbershops);
+        } else {
+            let barbershops = await Barbershop.find();
+            return formatMongoData(barbershops);
+        }
+    } catch (e) {
+        console.log('Something went wrong: Service: getAllBarbershopsWhere', e);
+        throw new Error(e);
+    }
+};
+
+module.exports.getBarbershopById = async (id) => {
+    try {
+        const barbershop = await Barbershop.findOne({ "_id": id })
+        if (!barbershop) {
+            throw new Error(constants.barbershopMessage.BARBERSHOP_NOT_FOUND);
+        }
+
+        return barbershop
+    } catch (e) {
+        console.log('Something went wrong: Service: getBarbershopById', e);
+        throw new Error(e);
+    }
+}
+
+module.exports.getBarbershopByUserId = async (id) => {
+    try {
+        const barbershop = await Barbershop.findOne({ "id_user": id })
+        if (!barbershop) {
+            throw new Error(constants.barbershopMessage.BARBERSHOP_NOT_FOUND);
+        }
+
+        return barbershop
+    } catch (e) {
+        console.log('Something went wrong: Service: getBarbershopByUserId', e);
+        throw new Error(e);
+    }
+}

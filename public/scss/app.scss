@@ -119,6 +119,10 @@ h3 {
     border: none;
 }
 
+.navbar-styling {
+    box-shadow: 2px 4px 8px 6px rgba(0, 0, 0, 0.1);
+}
+
 .profile-pic {
     border-radius:50%;  
     width:20rem;
@@ -176,6 +180,11 @@ h3 {
   border: 1px solid gray;
   height: 100%;
   padding: 10px;
+
+  &.da-content-styling {
+      border-radius: 20px;
+      border: 2px solid gray;
+  }
 }
 
 // For images
@@ -191,6 +200,30 @@ img {
 //   border: 1px solid red;
 // }
 
+// Utilities
+
+.absolute-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.card {
+    &-1 {
+        background-color: #ccc;
+        box-shadow: 2px 2px 8px 7px rgba(0, 0, 0, 0.1);
+        padding: 10px !important;
+        border-radius: 10px;
+    }
+    &-2 {
+        background-color: #ccc;
+        padding: 10px !important;
+        border-radius: 25px;
+    }
+}
+
 // Media Queries
 
 @media only screen and (min-width: 0px) {
@@ -199,16 +232,169 @@ img {
         width: 100%;
     }
 
-  .services_wrap {
-    label {
-        display: inline-block;
-        width: 150px;
-    }   
-  }
+    a{
+        text-decoration: none !important;
+    }
+
+    .hide-scrollbar {
+        overflow-y: scroll; /* Add the ability to scroll */
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        &::-webkit-scrollbar {/* Hide scrollbar for Chrome, Safari and Opera */
+            display: none;
+        }
+    }
+
+    p:empty::before { // keep a paragraph height even when there is no text in it
+        content:"";
+        display:inline-block !important;
+    }
+
+    #my-barbershop-form {
+        .services_wrap {
+            label {
+                display: inline-block;
+                width: 150px;
+            }   
+        }
+        button[type='submit'] {
+            padding: .25rem .5rem; // .btn-sm
+            font-size: .765625rem;
+            line-height: 1.5;
+            border-radius: .2rem;
+
+            width: 100%;
+        }
+    }
+
+    #login-form {
+        label {
+            display: inline-block;
+            width: 100px;
+        } 
+        input {
+            width: 100%;
+        }
+    }
+
+    #register-form {
+
+        label {
+            display: inline-block;
+            width: 100px;
+        } 
+        input:not([type='radio']) {
+            width: 100%;
+        }
+        // 
+    }
+    div.w3-container {
+        display: block;// for centering horizontally
+        text-align: center;
+        margin-top: 40px;
+    
+        #user_profile_form {
+            display: inline-block;// for centering horizontally
+            text-align: left;
+
+            label {
+                display: inline-block;
+                width: 150px;
+            } 
+            input, img {
+                width: 100%;
+            }
+            #profile_status {
+                display: block;
+                width: 200px;
+            }
+            button[type="submit"] {
+                margin-top: 16px;
+                width: 200px;
+                margin-bottom: 10px;
+            }
+            .submit_label {
+                display: none;
+            }
+            img {
+                border-radius: 5px;
+                margin: 10px 0 10px 0;
+            }
+        }
+    }
+
+    .da-content-barbershop {
+        height: 240px !important;
+    }
+    .da-content-barber {
+        height: 180px !important;
+    }
 }
 
 @media only screen and (min-width: 600px) {
   /* For tablets: */
+
+    #login-form {
+        input {
+            width: auto;
+        }
+    }
+    #register-form {
+        input {
+            width: auto !important;
+        }
+    }
+    #user_profile_form {
+        input, p {
+            width: auto !important;
+        }
+        p {
+            display: inline-block;
+        }
+        #profile_status {
+            display: inline-block !important;
+            // width: auto;
+            width: 200px !important;
+        }
+        button[type="submit"] {
+            // margin-left: 150px;
+            // width: 100%;
+            // max-width: 468px;
+        }
+        .submit_label {
+            display: inline-block !important;
+        }
+        img {
+            max-width: 468px;
+            background-color: #666666;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+
+    #my-barbershop-form {
+        .card-footer {
+            text-align: center;
+
+            button[type='submit'] {
+                padding: .5rem 1rem; // .btn-lg
+                font-size: 1.25rem;
+                line-height: 1.5;
+                border-radius: .3rem;
+
+                width: 50%;
+            }
+        }
+    }
+
+    .da-content-barbershop {
+        height: 220px !important;
+    }
+    .da-content-barber {
+        height: 160px !important;
+    }
+
   .col-s-1 {width: 8.33%;}
   .col-s-2 {width: 16.66%;}
   .col-s-3 {width: 25%;}
@@ -223,7 +409,7 @@ img {
   .col-s-12 {width: 100%;}
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) { // 993px?
   /* For desktop: */
   .col-1 {width: 8.33%;}
   .col-2 {width: 16.66%;}

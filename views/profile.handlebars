@@ -1,103 +1,32 @@
-                <div class="row">
-                    <div class="col-10 offset-md-1">
-                        <div class="card mt-3">
-                            <div class="card-body">
-                                <form id="user_profile_form" action="/api/user/profile" method="POST" class="form-horizontal" enctype="multipart/form-data">
-                                    <div class="form-group row" style="display: flex; align-items: center;">
-                                        <label class="col-sm-2 col-form-label">Profile Picture</label>
-                                        <div class="col-sm-10">
-                                            {{#if user.profile_image_upload}}
-                                                <img src="/uploads/profile-pictures/{{{user.profile_image_upload}}}" class="profile-pic">
-                                            {{else}}
-                                                <div class="profile-svg">
-                                                    <i class="far fa-user"></i>
-                                                </div>
-                                            {{/if}}
-                                            <div style="display: flex; flex-direction: column;">
-                                                <label for="file_input">
-                                                    {{!-- <i class="far fa-edit"></i> --}}
-                                                    New profile image
-                                                </label>
-                                                <input id="file_input" type="file" name="profile_image_upload" placeholder="Your profile picture" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Username</label>
-                                        <div class="col-sm-10">
-                                            <p>{{{user.username}}}</p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Email</label>
-                                        <div class="col-sm-10">
-                                            <p>{{{user.email}}}</p>
-                                            {{!-- <input type="hidden" id="email" name="email" value="user.email"> --}}
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="status" class="col-sm-2 col-form-label">Status</label>
-                                        <div class="col-sm-10">
-                                            <textarea class="form-control" id="profile_status" name="profile_status"
-                                                placeholder="Write your status..." style="width: 50%;">{{{user.profile_status}}}</textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="offset-sm-2 col-sm-10">
-                                            <button type="submit" class="btn btn-green">Save</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-{{!-- <form class="form-horizontal">
-    <div class="form-group row">
-        <label for="inputName" class="col-sm-2 col-form-label">Username</label>
-        <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputName" placeholder="Name">
+<div class="w3-container pb-5">
+    <form id="user_profile_form" class="card-1" action="/api/user/profile" method="POST" enctype="multipart/form-data">
+        <div>
+            <label>Profile Picture</label>
+            {{#if user.profile_image_upload}}
+                <img src="/uploads/profile-pictures/{{{user.profile_image_upload}}}">
+            {{else}}
+                <i class="far fa-user"></i>
+            {{/if}}
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-        <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+        <div>
+            <label for="file_input">New profile image</label>
+            <input id="file_input" type="file" name="profile_image_upload" placeholder="Your profile picture" /><br>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputName2" placeholder="Name">
+        <div>
+            <label>Username</label>
+            <p>{{{user.username}}}</p>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
-        <div class="col-sm-10">
-            <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+        <div>
+            <label>Email</label>
+            <p>{{{user.email}}}</p>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+        <div>
+            <label for="status">Status</label>
+            <input type="text" id="profile_status" name="profile_status" placeholder="Write your status..." value="{{{user.profile_status}}}">
         </div>
-    </div>
-    <div class="form-group row">
-        <div class="offset-sm-2 col-sm-10">
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox"> I agree to the <a href="#">terms and
-                        conditions</a>
-                </label>
-            </div>
+        <div>
+            <label for="" class="submit_label"></label>
+            <button type="submit">Save</button>
         </div>
-    </div>
-    <div class="form-group row">
-        <div class="offset-sm-2 col-sm-10">
-            <button type="submit" class="btn btn-danger">Submit</button>
-        </div>
-    </div>
-</form> --}}
+    </form>
+</div>

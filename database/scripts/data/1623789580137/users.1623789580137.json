@@ -1,0 +1,268 @@
+[
+  {
+    "_id": "60b6db6d3557523ae80f05bb",
+    "email": "test@test.com",
+    "password": "$2b$12$YcVGis8Uclr3Y8bVT3886udWSP1TnqVQQn/qQPaW1i1D533Pl8Eii",
+    "createdAt": "2021-06-02T01:14:21.617Z",
+    "updatedAt": "2021-06-02T01:14:21.617Z",
+    "__v": 0
+  },
+  {
+    "_id": "60b6dcd58f822f5db857c680",
+    "email": "test5@test.com",
+    "password": "$2b$12$KVwIEZBJ/EZ7BvCGYGLqMu.SGryLnTmnUbfcp7gEu8gtSgeKyczu6",
+    "createdAt": "2021-06-02T01:20:21.569Z",
+    "updatedAt": "2021-06-02T01:20:21.569Z",
+    "__v": 0
+  },
+  {
+    "_id": "60b6dd64595beb03f045a134",
+    "email": "test9@test.com",
+    "password": "$2b$12$gLmEE8fusVXKd98.qB4EJ.BTnHGQW6Q2KDkl1cL2zv7pr8L02wQjC",
+    "createdAt": "2021-06-02T01:22:44.055Z",
+    "updatedAt": "2021-06-08T17:50:05.910Z",
+    "__v": 0,
+    "profile_image_upload": "qO55xcqDB.jpeg",
+    "profile_status": ""
+  },
+  {
+    "_id": "60b6dd28a2428727c880c22e",
+    "email": "test7@test.com",
+    "password": "$2b$12$gCOAhk4QFHN0DvR1ixy7K.21VeucQt7dfUZqujrnWCpL0lYFHkO9S",
+    "createdAt": "2021-06-02T01:21:44.939Z",
+    "updatedAt": "2021-06-02T01:21:44.939Z",
+    "__v": 0
+  },
+  {
+    "_id": "60b6e1d331afcb67f460ce6f",
+    "email": "mike_tyson@test.com",
+    "password": "$2b$12$HkxA2RG51V2pz.GozOhU3e5vpX2ncKElpUO3DMPOIq2ckDDADLTjC",
+    "createdAt": "2021-06-02T01:41:39.395Z",
+    "updatedAt": "2021-06-02T01:41:39.395Z",
+    "__v": 0
+  },
+  {
+    "_id": "60b7bea624991b3994e41a17",
+    "email": "test12@test.com",
+    "password": "$2b$12$5msga9jkNP5rVICG2zEVEelQGlVyuHCPJMt2oleQjjmWIe7bxT1Aa",
+    "createdAt": "2021-06-02T17:23:50.613Z",
+    "updatedAt": "2021-06-02T17:23:50.613Z",
+    "__v": 0
+  },
+  {
+    "_id": "60b7be313b995a3dcc974571",
+    "email": "test11@test.com",
+    "password": "$2b$12$dM1t2k9xcXP3KqPA2Ac2pOzsuvrO9/8vctPPNILiAd3wAcSg4cMu2",
+    "createdAt": "2021-06-02T17:21:53.648Z",
+    "updatedAt": "2021-06-02T17:21:53.648Z",
+    "__v": 0
+  },
+  {
+    "_id": "60b7c03b2163700beced0592",
+    "email": "test14@test.com",
+    "password": "$2b$12$gxqzrm0Gz8zxXx3LjtB9N.zBOZEar6Obq6PQ/yWz7MXa5HVVicm32",
+    "createdAt": "2021-06-02T17:30:35.261Z",
+    "updatedAt": "2021-06-02T17:30:35.261Z",
+    "__v": 0
+  },
+  {
+    "_id": "60b7c04d2163700beced0593",
+    "email": "test15@test.com",
+    "password": "$2b$12$z2njDRMI6dVwrvyUv0/bNOnzSs4sEE8zB9LY0RdNbTDyddA5bSPv2",
+    "createdAt": "2021-06-02T17:30:53.962Z",
+    "updatedAt": "2021-06-02T17:30:53.962Z",
+    "__v": 0
+  },
+  {
+    "_id": "60b7c0bdcc689c74109d48c7",
+    "username": "test",
+    "email": "test16@test.com",
+    "password": "$2b$12$bnODmxLNQ5CFMgMzagRJYu8PUI6RVlZ/2pzVZNX5mrOAX4RLDd//2",
+    "createdAt": "2021-06-02T17:32:45.263Z",
+    "updatedAt": "2021-06-02T17:32:45.263Z",
+    "__v": 0
+  },
+  {
+    "_id": "60b7c31bb2c4d050a0bfe001",
+    "username": "test",
+    "email": "test21@test.com",
+    "password": "$2b$12$nnKnwfJmolqC.Z8siHfj5.pN940Z/UgfIfnUFhW14SnUhx20nr8oa",
+    "user_type": "customer",
+    "createdAt": "2021-06-02T17:42:51.237Z",
+    "updatedAt": "2021-06-02T17:42:51.237Z",
+    "__v": 0
+  },
+  {
+    "_id": "60b6dc989956855320b814e0",
+    "email": "test4@test.com",
+    "password": "$2b$12$RkvUHQTeLByCUf2YICR.3uObEli6N4eO3XGvhHYMezd5tfiN.jhyK",
+    "createdAt": "2021-06-02T01:19:20.049Z",
+    "updatedAt": "2021-06-03T17:35:16.789Z",
+    "__v": 0,
+    "profile_image_upload": "vMOGrNdjZ.jpeg",
+    "profile_status": "9"
+  },
+  {
+    "_id": "60b7c34db2c4d050a0bfe002",
+    "username": "test",
+    "email": "test22@test.com",
+    "password": "$2b$12$hJWYe2Jv6aLkSH9FfDJiGO/uuu0v3rZX73V9FxJRnFVZmlnE.Z8se",
+    "user_type": "customer",
+    "createdAt": "2021-06-02T17:43:41.822Z",
+    "updatedAt": "2021-06-02T17:43:41.822Z",
+    "__v": 0
+  },
+  {
+    "_id": "60b7c36ab2c4d050a0bfe003",
+    "username": "test",
+    "email": "test23@test.com",
+    "password": "$2b$12$HjlOmKY43Ijib9CvIdB4fuxbpg8TycQh/vzUta.V2PXLHtkbVNGKi",
+    "user_type": "barber",
+    "createdAt": "2021-06-02T17:44:10.680Z",
+    "updatedAt": "2021-06-10T19:14:28.345Z",
+    "__v": 0,
+    "profile_status": "olaeeees",
+    "profile_image_upload": "VXg215ozi.jpeg"
+  },
+  {
+    "_id": "60b6dc089399856200ec42c4",
+    "email": "test2@test.com",
+    "password": "$2b$12$0nikZ6K4MUhLhV/.r5WHpe34RYY88hM.On1Blx0pg7Fr7l6aqWjdK",
+    "createdAt": "2021-06-02T01:16:56.570Z",
+    "updatedAt": "2021-06-03T17:47:48.055Z",
+    "__v": 0,
+    "profile_image_upload": "ermZcXin0.jpeg",
+    "profile_status": "hhh"
+  },
+  {
+    "_id": "60c4e26b7861956c0c323ab5",
+    "username": "JustusSchulist",
+    "email": "Justus_Schulist@hotmail.com",
+    "password": "password123",
+    "user_type": "barber"
+  },
+  {
+    "_id": "60c4e26b7861956c0c323ab6",
+    "username": "LuisaCole",
+    "email": "Luisa_Cole4@gmail.com",
+    "password": "password123",
+    "user_type": "barber"
+  },
+  {
+    "_id": "60c4e2c29003aa6a6cf61abc",
+    "username": "VivianneBauch",
+    "email": "Vivianne.Bauch65@gmail.com",
+    "password": "password123",
+    "user_type": "barber"
+  },
+  {
+    "_id": "60c4e2c29003aa6a6cf61abd",
+    "username": "KamrenGerhold",
+    "email": "Kamren.Gerhold@gmail.com",
+    "password": "password123",
+    "user_type": "barber"
+  },
+  {
+    "_id": "60c4e26b7861956c0c323ab8",
+    "username": "EugeneKuphal",
+    "email": "Eugene54@yahoo.com",
+    "password": "password123",
+    "user_type": "barber"
+  },
+  {
+    "_id": "60c4e2c29003aa6a6cf61abe",
+    "username": "DerickBode",
+    "email": "Derick.Bode@gmail.com",
+    "password": "password123",
+    "user_type": "barber"
+  },
+  {
+    "_id": "60c4e2c29003aa6a6cf61abf",
+    "username": "JanaHettinger",
+    "email": "Jana.Hettinger@gmail.com",
+    "password": "password123",
+    "user_type": "barber"
+  },
+  {
+    "_id": "60c4e3224380ef43f04a964e",
+    "username": "JolieKertzmann",
+    "email": "Jolie.Kertzmann64@gmail.com",
+    "password": "password123",
+    "user_type": "barber",
+    "createdAt": "2021-06-12T16:38:58.985Z",
+    "updatedAt": "2021-06-12T16:38:58.985Z"
+  },
+  {
+    "_id": "60c4e479bae6426f005419be",
+    "username": "OttisWuckert",
+    "email": "Ottis61@gmail.com",
+    "password": "$2b$12$P8FHvnCMEcpXy6J/c5RcLe4RZ2GwkS1xFRF6VcNw73xd0AqYUDJbC",
+    "user_type": "barber",
+    "createdAt": "2021-06-12T16:44:41.128Z",
+    "updatedAt": "2021-06-12T16:44:41.128Z"
+  },
+  {
+    "_id": "60c4e3a757c5e0410026ef27",
+    "username": "TylerTillman",
+    "email": "Tyler_Tillman@gmail.com",
+    "password": "test",
+    "user_type": "barber",
+    "createdAt": "2021-06-12T16:41:11.290Z",
+    "updatedAt": "2021-06-12T16:41:11.290Z"
+  },
+  {
+    "_id": "60c4e26b7861956c0c323ab9",
+    "username": "DenisGorczany",
+    "email": "Denis92@hotmail.com",
+    "password": "password123",
+    "user_type": "barber"
+  },
+  {
+    "_id": "60c4e8fd8c68146a58afaa24",
+    "username": "MafaldaBoehm",
+    "email": "Mafalda.Boehm@gmail.com",
+    "password": "$2b$12$mCUD/PqFF8fOiFw7aKD7POvmbf1vOUSufSLGWOguxHhhd3svl/s.y",
+    "user_type": "barber",
+    "createdAt": "2021-06-12T17:03:57.477Z",
+    "updatedAt": "2021-06-12T17:03:57.477Z"
+  },
+  {
+    "_id": "60b6dc339f550f3ae0832e6d",
+    "email": "test3@test.com",
+    "password": "$2b$12$5lIeGvCzH9HfULUqeQEC9u.WLghiDFLXNnRJOlbUporVGyLKPk4OG",
+    "createdAt": "2021-06-02T01:17:39.541Z",
+    "updatedAt": "2021-06-02T01:17:39.541Z",
+    "__v": 0
+  },
+  {
+    "_id": "60c4e94545b48e455c347c5b",
+    "username": "ErinJaskolski",
+    "email": "Erin77@gmail.com",
+    "password": "$2b$12$5eV/CjCzzOL.PxKfIgN81OviUkwJroNK341vvsNHO7QjuMxa0XByG",
+    "user_type": "barber",
+    "createdAt": "2021-06-12T17:05:09.408Z",
+    "updatedAt": "2021-06-12T17:05:09.408Z"
+  },
+  {
+    "_id": "60c4e2c29003aa6a6cf61abb",
+    "username": "RachaelConroy",
+    "email": "Rachael98@gmail.com",
+    "password": "password123",
+    "user_type": "barber"
+  },
+  {
+    "_id": "60c4e26b7861956c0c323ab7",
+    "username": "RandiSchulist",
+    "email": "Randi.Schulist56@yahoo.com",
+    "password": "password123",
+    "user_type": "barber"
+  },
+  {
+    "_id": "60b6dcfb7eac702c3051c0f5",
+    "email": "test6@test.com",
+    "password": "$2b$12$002M8oOLyB/InuofW33/0ec73TMYT3R.wmqG.ms0hWlnoNz5fHGSi",
+    "createdAt": "2021-06-02T01:20:59.280Z",
+    "updatedAt": "2021-06-02T01:20:59.280Z",
+    "__v": 0
+  }
+]

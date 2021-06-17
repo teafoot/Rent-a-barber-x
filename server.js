@@ -11,8 +11,10 @@ const createError = require('http-errors'); // 404
 const cookieParser = require('cookie-parser'); // alternative to localStorage jwt token
 // const session = require('express-session'); // for flash
 // const flash = require('connect-flash'); // flash messages
+var morgan = require('morgan') // logs
 
 const app = express();
+app.use(morgan('dev'))
 app.engine('handlebars',
     exphbs({
         defaultLayout: 'layout',
@@ -38,12 +40,13 @@ app.use(cookieParser());
 // }));
 // app.use(flash());
 
-const nm_dependencies = ['jquery', 'popper.js', 'bootstrap', 'admin-lte', 'bootswatch', '@fortawesome', 'normalize.css']; // keep adding required node_modules 
+const nm_dependencies = ['jquery', 'popper.js', 'bootstrap', 'admin-lte', 'bootswatch', '@fortawesome', 'paginationjs', 'normalize.css']; // keep adding required node_modules 
 nm_dependencies.forEach(dep => {
     app.use(`/${dep}`, express.static(path.resolve(`node_modules/${dep}`)));
 });
 
 app.use('/', require('./routes/webRoutes'));
+// app.use('/api/home', require('./routes/homeApiRoutes')); // for pagination purposes
 app.use('/api/user', require('./routes/userApiRoutes'));
 app.use('/api/barbershop', require('./routes/barbershopApiRoutes'));
 app.use('/api/product', require('./routes/productRoutes'));

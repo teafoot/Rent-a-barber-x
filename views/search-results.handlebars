@@ -1,3 +1,5 @@
+<b>Search results for: {{{query}}}</b><hr>
+
 <div class="col-12 mt-3">
     <div class="card card-primary card-outline card-outline-tabs">
         <div class="card-header p-0 border-bottom-0">
@@ -8,8 +10,9 @@
                         aria-selected="true">Barbershops</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="custom-tabs-four-preview-tab" data-toggle="pill" href="#custom-tabs-four-preview"
-                        role="tab" aria-controls="custom-tabs-four-preview" aria-selected="false">Barbers</a>
+                    <a class="nav-link" id="custom-tabs-four-preview-tab" data-toggle="pill"
+                        href="#custom-tabs-four-preview" role="tab" aria-controls="custom-tabs-four-preview"
+                        aria-selected="false">Barbers</a>
                 </li>
             </ul>
         </div>
@@ -22,11 +25,13 @@
                     <div class="da-floatbox w3-margin">
                         {{#each barbershops}}
                         <div class="w3-margin-bottom da-item w3-col s12 m6 l4">
-                            <div class="da-content da-content-styling da-content-barbershop hide-scrollbar" style="overflow-y:auto; height:250px;">
+                            <div class="da-content da-content-styling da-content-barbershop hide-scrollbar"
+                                style="overflow-y:auto; height:250px;">
                                 <b>
                                     <p>{{{title}}}</p>
                                 </b>
-                                <p class="hide-scrollbar" style="overflow-y:auto; max-height:100px;">{{{description}}}</p>
+                                <p class="hide-scrollbar" style="overflow-y:auto; max-height:100px;">{{{description}}}
+                                </p>
                                 <p>{{{location}}}</p>
                                 <a href="/barbershop_id/{{{id_barbershop}}}"><button>View Barbershop</button></a>
                             </div>
@@ -38,25 +43,26 @@
                     <b>New Barbershops</b>
                     <hr>
                 </div>
-                <div class="tab-pane fade" id="custom-tabs-four-preview" role="tabpanel" aria-labelledby="custom-tabs-four-preview-tab">
+                <div class="tab-pane fade" id="custom-tabs-four-preview" role="tabpanel"
+                    aria-labelledby="custom-tabs-four-preview-tab">
                     <b>Featured Barbers</b>
                     <hr>
                     <div class="da-floatbox w3-margin">
                         {{#each barbers}}
                         <div class="w3-margin-bottom da-item w3-col s12 m6 l4">
-                            <div class="da-content da-content-styling da-content-barber hide-scrollbar" style="overflow-y:auto; height:250px;">
+                            <div class="da-content da-content-styling da-content-barber hide-scrollbar"
+                                style="overflow-y:auto; height:250px;">
                                 <b>
                                     <p>{{{username}}}</p>
                                 </b>
-                                <p class="hide-scrollbar" style="overflow-y:auto; max-height:100px;">{{{profile_status}}}</p>
+                                <p class="hide-scrollbar" style="overflow-y:auto; max-height:100px;">
+                                    {{{profile_status}}}</p>
                                 <p>{{{email}}}</p>
-                                <a href="/profile_id/{{{_id}}}"><button>View Barber profile</button></a>
+                                <a href="/profile_id/{{{id_user}}}"><button>View Barber profile</button></a>
                             </div>
                         </div>
                         {{/each}}
                     </div>
-                    <div id="data-container"></div>
-                    <div id="pagination-container"></div>
                     <b>Trending Barbers</b>
                     <hr>
                     <b>New Barbers</b>

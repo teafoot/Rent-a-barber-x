@@ -1,4 +1,36 @@
-<main class="container">
+<div class="absolute-center card-1">
+    <form id="register-form" action="/api/user/signup" method="POST">
+        <div>
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Your Username">
+        </div>
+        <div>
+            <label>E-mail</label>
+            <input type="email" name="email" placeholder="Your E-mail">
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Your Password">
+        </div>
+        <div>
+            <label>Repeat Password</label>
+            <input type="password" name="password_confirmation" placeholder="Confirm Password">
+        </div>
+        <div>
+            <label>User type</label><br>
+            <input type="radio" name="user_type" value="customer"> <label>Customer</label><br>
+            <input type="radio" name="user_type" value="barber"> <label>Barber</label>
+        </div>
+        <div>
+            <br><button type="submit" class="btn-md w3-bar">Create account</button>
+        </div>
+        <div>
+            <a href="/login">Back to Login</a>
+        </div>
+    </form>
+</div class="absolute-center">
+
+{{!-- <main class="container">
     <form id="register-form" action="/api/user/signup" method="POST" class="default-form">
         <div class="field">
             <label>Username</label>
@@ -29,4 +61,4 @@
             <input type="submit" value="Create Account" class="btn btn-blue">
         </div>
     </form>
-</main>
+</main> --}}

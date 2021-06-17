@@ -1,6 +1,8 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { v4 as uuidv4 } from 'uuid';
+import pagination from 'paginationjs'
+import Handlebars from 'handlebars'
 
 document.addEventListener('DOMContentLoaded', () => {
     // window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -150,17 +152,29 @@ document.addEventListener('DOMContentLoaded', () => {
         numberOfServices++
         let myUUID = uuidv4()
         $(servicesWrapper).append(`
-            <div class="form-group w3-margin-bottom w3-border w3-border-gray w3-padding w3-col s12 m6 l4">
-                <label for="" class="w3-margin-right">Service ${numberOfServices}</label>
-                <div class="removeService fas fa-trash w3-right" id="${myUUID}"></div><br><br>
-                <label for="">Title</label>
-                <input type="text" class="w3-input" name="myServices[${myUUID}][service_title]"><br>
-                <label for="">Description</label>
-                <input type="text" class="w3-input" name="myServices[${myUUID}][service_description]"><br>
-                <label for="">Price</label>
-                <input type="text" class="w3-input" name="myServices[${myUUID}][service_price]">
+            <div class="form-group w3-margin-bottom da-item w3-col s12 m6 l4">
+                <div class="da-content da-content-styling">
+                    <label for="" class="w3-margin-right">Service ${numberOfServices}</label>
+                    <div class="removeService fas fa-trash w3-right" id="${myUUID}"></div><br><br>
+                    <label for="">Title</label>
+                    <input type="text" class="w3-input" name="myServices[${myUUID}][service_title]"><br>
+                    <label for="">Description</label>
+                    <input type="text" class="w3-input" name="myServices[${myUUID}][service_description]"><br>
+                    <label for="">Price</label>
+                    <input type="text" class="w3-input" name="myServices[${myUUID}][service_price]">
+                </div>
             </div>
         `);
+        /*<div class="form-group w3-margin-bottom w3-border w3-border-gray w3-padding w3-col s12 m6 l4">
+            <label for="" class="w3-margin-right">Service ${numberOfServices}</label>
+            <div class="removeService fas fa-trash w3-right" id="${myUUID}"></div><br><br>
+            <label for="">Title</label>
+            <input type="text" class="w3-input" name="myServices[${myUUID}][service_title]"><br>
+            <label for="">Description</label>
+            <input type="text" class="w3-input" name="myServices[${myUUID}][service_description]"><br>
+            <label for="">Price</label>
+            <input type="text" class="w3-input" name="myServices[${myUUID}][service_price]">
+        </div>*/
     });
     $(servicesWrapper).on("click", ".removeService", function (e) { //user click on remove text
         e.preventDefault();
@@ -218,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // if (Array.isArray(data.responseJSON.body)) {
                     let errors = []
-                    errorMessage = '<ul style="list-style:none;">'
+                    errorMessage = '<ul style="list-style:square;text-align:left;">'
                     data.responseJSON.body.forEach(item => {
                         if (!errors.includes(item.error)) { // JOI has a duplicate error message for e.g. Service price is required and only accepts numbers
                             errors.push(item.error) // make more error-friendly message
@@ -240,4 +254,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // HOMEPAGE
+
+    // function simpleTemplating(data) {
+    //     var html = '<div>';
+    //     $.each(data, function (index, item) {
+    //         html += '<p>' + item + '</p>';
+    //     });
+    //     html += '</div>';
+    //     return html;
+    // }
+
+    // $('#pagination-container').pagination({
+    //     // dataSource: [1,2,3,4,5],
+    //     dataSource: (done) => $.ajax({
+    //         url: '/api/home/',
+    //         type: 'GET',
+    //         dataType: 'json',
+    //         success: (data) => {
+    //             console.log({data}) // not working
+    //             // done(data)
+    //             done(
+    //                 data.content.map((e, i) => i)
+    //             )
+    //         },
+    //         error: (data) => {
+    //             console.log({data})
+    //         }
+    //     }),
+    //     pageSize: 5,
+    //     className: 'paginationjs-theme-blue',
+    //     callback: function (data, pagination) {
+    //         // pagination.className = 'paginationjs-theme-blue';
+    //         // console.log({ pagination })
+    //         var html = simpleTemplating(data);
+    //         $('#data-container').html(html);
+    //     }
+    // })
 });

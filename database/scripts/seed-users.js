@@ -36,6 +36,7 @@ async function seedTestUsers(db) {
             email: "test" + i + "@test.com",
             password,
             user_type: Math.random() < 0.5 ? "barber" : "customer",
+            profile_image_upload: "default-profile.svg",
             createdAt: now,
             updatedAt: now
         };

@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
     timestamps: true,
     toObject: {
         transform: function (doc, ret, options) {
-            ret.id_user = ret._id;
+            ret.id_user = ret._id; // left one is when using formatMongoData()/JS Object, right one is when using a fetched MongoDB object
             delete ret._id;
             delete ret.__v;
             delete ret.password;

@@ -292,4 +292,11 @@ document.addEventListener('DOMContentLoaded', () => {
     //         $('#data-container').html(html);
     //     }
     // })
-});
+
+    // BARBER PROFILE
+
+    $("#send_message").on("click", function(e) {
+        const recipient_id = this.dataset.profile_id
+        window.location.href = `/messages/${recipient_id}`;
+    })
+})

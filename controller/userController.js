@@ -31,10 +31,15 @@ module.exports.uploadProfilePicture = async (req, res, next) => {
             }
         });
 
-        // delete old uploaded image
         let token = req.cookies._authToken || req.headers.authorization.split('Bearer ')[1];
         const user = await userService.getUserFromToken(token)
         const oldPicture = user.profile_image_upload
+        // console.log({oldPicture})
+        if (oldPicture == "default-profile.svg") {
+            next()
+            return; // don't delete the default-profile.svg picture
+        }
+        // delete old uploaded image
         const removeFilePath = req.file.destination + "/" + oldPicture
         // console.log(removeFilePath)
         fs.unlink(removeFilePath, (err) => {
@@ -122,4 +127,15 @@ module.exports.logout = async (req, res) => {
     }
 
     res.redirect('/login');
+}
+
+module.exports.getUserByAjaxToken = async (req, res) => {
+    let token = req.headers.authorization.split('Bearer ')[1];
+    let user = await userService.getUserFromToken(token);
+    return res.json(user);
+}
+
+module.exports.getUserIdAjax = async (req, res) => {
+    let user = await userService.getUserById(req.params.user_id);
+    return res.json(user);
 }

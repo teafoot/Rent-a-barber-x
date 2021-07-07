@@ -14,8 +14,9 @@ module.exports.signup = async (data) => {
         }
 
         password = await bcrypt.hash(password, 12);
+        let profile_image_upload = "default-profile.svg"
 
-        const newUser = new User({ username, email, password, user_type });
+        const newUser = new User({ username, email, password, user_type, profile_image_upload });
         let result = await newUser.save();
 
         return formatMongoData(result);
@@ -51,7 +52,13 @@ module.exports.getUserFromToken = async (token) => {
         const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY || 'my-secret-key');
         // console.log(decoded) // { id: '60b6dd64595beb03f045a134', iat: 1622650222, exp: 1622736622 }
         // const user = await User.findOne({ "_id": decoded.id }) // not working anymore for some reason...
-        const user = await User.findOne({ "email": decoded.email })
+        const user = await User.findOne({ "email": decoded.email }, {
+            "profile_image_upload": 1,
+            "profile_status": 1,
+            "user_type": 1,
+            username: 1,
+            email: 1
+        })
         // console.log(user) // { email: 'test9@test.com', createdAt: 2021 - 06 - 02T01: 22: 44.055Z, updatedAt: 2021 - 06 - 02T01: 22: 44.055Z, id_user: 60b6dd64595beb03f045a134 }
         if (!user) {
             throw new Error(constants.userMessage.USER_NOT_FOUND);
@@ -66,7 +73,13 @@ module.exports.getUserFromToken = async (token) => {
 
 module.exports.getUserById = async (id) => {
     try {
-        const user = await User.findOne({"_id": id})
+        const user = await User.findOne({ "_id": id }, {
+            "profile_image_upload": 1,
+            "profile_status": 1,
+            "user_type": 1,
+            username: 1,
+            email: 1
+        })
         if (!user) {
             throw new Error(constants.userMessage.USER_NOT_FOUND);
         }
@@ -77,6 +90,16 @@ module.exports.getUserById = async (id) => {
         throw new Error(e);
     }
 }
+
+module.exports.getUserIdFromToken = async (token) => {
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY || 'my-secret-key');
+        return decoded.id
+    } catch (e) {
+        console.log('Something went wrong: Service: getUserIdFromToken', e);
+        throw new Error(e);
+    }
+};
 
 module.exports.getAllBarbers = async () => {
     try {

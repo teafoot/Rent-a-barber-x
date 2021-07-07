@@ -6,9 +6,13 @@
   "scripts": {
     "node-start": "node server.js",
     "node-dev": "nodemon server.js",
-    "webpack-watch": "webpack --w --mode development",
+    "webpack:watch": "webpack --w --mode development",
     "scss": "node-sass ./public/scss -o ./public/css",
-    "scss:watch": "npm run scss && node-sass --watch ./public/scss -o ./public/css"
+    "scss:watch": "npm run scss && node-sass --watch ./public/scss -o ./public/css",
+    "test_login": "npx mocha tests/test/test_login.js",
+    "test_register": "npx mocha tests/test/test_register.js",
+    "test_profile": "npx mocha tests/test/test_profile.js",
+    "test_regression_reports": "npx mocha-parallel-tests tests/test --reporter mochawesome --reporter-options autoOpen=true"
   },
   "repository": {
     "type": "git",
@@ -49,6 +53,7 @@
     "paginationjs": "^2.1.5",
     "path": "^0.12.7",
     "shortid": "^2.2.14",
+    "socket.io": "^2.4.0",
     "sweetalert2": "^8.2.6",
     "uuid": "^8.3.2"
   },
@@ -56,7 +61,13 @@
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "babel-loader": "^8.0.5",
+    "chai": "^4.2.0",
     "faker": "^5.5.3",
+    "geckodriver": "^2.0.0",
+    "selenium-webdriver": "^3.6.0",
+    "mocha": "^7.1.1",
+    "mocha-parallel-tests": "^2.3.0",
+    "mochawesome": "^5.0.0",
     "mongodb": "^3.6.9",
     "nodemon": "^2.0.2",
     "webpack": "^4.29.5",

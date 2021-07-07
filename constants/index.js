@@ -30,10 +30,14 @@ module.exports = {
         BARBERSHOP_SERVICE_DELETION_FAILURE: 'Failed deleting barbershop service',
         BARBERSHOP_NOT_FOUND: 'Barbershop not found',
     },
+    messageMessage: {
+        SAVED_SUCCESS: 'Message was saved successfully'
+    },
     requestValidationMessage: {
         BAD_REQUEST: 'Invalid fields',
         TOKEN_MISSING: 'Token missing from header',
-        NOT_BARBER: 'Not a barber'
+        NOT_BARBER: 'Not a barber',
+        RECIPIENT_CANNOT_BE_SELF: 'The recipient of the message cannot be you'
     },
     databaseMessage: {
         INVALID_ID: 'Invalid ID'

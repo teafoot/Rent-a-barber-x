@@ -27,4 +27,7 @@ const multerOptions = {
 const upload = multer(multerOptions);
 router.post('/profile', upload.single('profile_image_upload'), tokenValidation.validateToken, joiSchemaValidation.validateBody(userSchema.profile), userController.uploadProfilePicture, userController.saveProfile);
 
+router.get('/get-user-from-token-ajax', tokenValidation.validateToken, userController.getUserByAjaxToken)
+router.get('/get-user-by-id-ajax/:user_id', tokenValidation.validateToken, userController.getUserIdAjax)
+
 module.exports = router;

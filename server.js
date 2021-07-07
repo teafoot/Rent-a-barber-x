@@ -4,6 +4,8 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const Handlebars = require('handlebars')
 const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
+const http = require('http');
+const socketio = require('socket.io');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
@@ -40,7 +42,7 @@ app.use(cookieParser());
 // }));
 // app.use(flash());
 
-const nm_dependencies = ['jquery', 'popper.js', 'bootstrap', 'admin-lte', 'bootswatch', '@fortawesome', 'paginationjs', 'normalize.css']; // keep adding required node_modules 
+const nm_dependencies = ['jquery', 'popper.js', 'bootstrap', 'admin-lte', 'bootswatch', '@fortawesome', 'paginationjs', 'normalize.css', 'socket.io-client']; // keep adding required node_modules 
 nm_dependencies.forEach(dep => {
     app.use(`/${dep}`, express.static(path.resolve(`node_modules/${dep}`)));
 });
@@ -49,6 +51,7 @@ app.use('/', require('./routes/webRoutes'));
 // app.use('/api/home', require('./routes/homeApiRoutes')); // for pagination purposes
 app.use('/api/user', require('./routes/userApiRoutes'));
 app.use('/api/barbershop', require('./routes/barbershopApiRoutes'));
+app.use('/api/messages', require('./routes/messageApiRoutes'));
 app.use('/api/product', require('./routes/productRoutes'));
 // 404 not found
 app.use((req, res, next) => {
@@ -64,11 +67,22 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
-app.get('/', (req, res, next) => {
-    res.send('Hello from Node API Server');
-});
+
+
+
+const server = http.createServer(app);
+const io = socketio(server);
+io.on('connection', socket => {
+    console.log('socket.io connection was established')
+    
+    socket.on('disconnect', () => {// Runs when client disconnects (goes to another url)
+    });
+})
+const messageService = require('./service/messageService')
+messageService.sendMessageToUserSocket(io) // Socket.io - listen events in separate files
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+    // console.log(`Server listening on port ${PORT}`);
+// });
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));

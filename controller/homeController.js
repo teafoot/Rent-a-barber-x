@@ -44,19 +44,23 @@ module.exports.search = async (req, res) => {
     const barbers = await userService.getBarbersWhere(req.query.query)
     // console.log({barbers})
 
+    let token = req.cookies._authToken;
+    const user = await userService.getUserFromToken(token)
+
     res.render('search-results', {
         layout: 'layout.navbar.handlebars',
         pageTitle: 'BarberX - Search Results',
         query: req.query.query,
         barbershops,
-        barbers
+        barbers,
+        user
     })
 }
 
 module.exports.profilePage = async (req, res) => {
     let token = req.cookies._authToken;
     const user = await userService.getUserFromToken(token)
-    // console.log(user)
+    // console.log({user})
 
     res.render('profile', {
         layout: 'layout.navbar.handlebars',

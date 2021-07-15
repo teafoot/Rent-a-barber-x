@@ -3,7 +3,7 @@
         <div>
             <label>Profile Picture</label>
             {{#if user.profile_image_upload}}
-                <img src="/uploads/profile-pictures/{{{user.profile_image_upload}}}">
+                <img class="user_profile_image" src="/uploads/profile-pictures/{{{user.profile_image_upload}}}">
             {{else}}
                 <i class="far fa-user"></i>
             {{/if}}
@@ -19,6 +19,13 @@
         <div>
             <label>Email</label>
             <p>{{{user.email}}}</p>
+        </div>
+        <div>
+            <label>Location</label>
+            <input type="text" name="location" id="location" value="{{{user.location.location_name}}}">
+            <input type="hidden" name="latitude" id="latitude" value="{{{user.location.latitude}}}">
+            <input type="hidden" name="longitude" id="longitude" value="{{{user.location.longitude}}}">
+            <div id="mapid"></div>
         </div>
         <div>
             <label for="status">Status</label>

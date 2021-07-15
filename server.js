@@ -67,9 +67,6 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
-
-
-
 const server = http.createServer(app);
 const io = socketio(server);
 io.on('connection', socket => {

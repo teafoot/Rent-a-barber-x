@@ -107,6 +107,13 @@ document.addEventListener('DOMContentLoaded', () => {
         datos.append('profile_status', profile_status)
         datos.append('profile_image_upload', file)
 
+        const location = document.getElementById("location").value
+        const latitude = document.getElementById("latitude").value
+        const longitude = document.getElementById("longitude").value
+        datos.append('location', location)
+        datos.append('latitude', latitude)
+        datos.append('longitude', longitude)
+
         $.ajax({
             type: $(this).attr('method'),
             url: $(this).attr('action'),

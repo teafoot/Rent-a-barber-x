@@ -6,7 +6,8 @@ const userSchema = new mongoose.Schema({
     password: String,
     user_type: String,
     profile_image_upload: String,
-    profile_status: String
+    profile_status: String,
+    location: Object
 }, {
     timestamps: true,
     toObject: {

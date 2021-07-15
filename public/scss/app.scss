@@ -301,7 +301,8 @@ img {
                 display: inline-block;
                 width: 150px;
             } 
-            input, img {
+            input,
+            img {
                 width: 100%;
             }
             #profile_status {
@@ -316,7 +317,8 @@ img {
             .submit_label {
                 display: none;
             }
-            img {
+            // img:not([class*="leaflet-marker-icon"]) {
+            img.user_profile_img {
                 border-radius: 5px;
                 margin: 10px 0 10px 0;
             }
@@ -364,12 +366,23 @@ img {
         .submit_label {
             display: inline-block !important;
         }
-        img {
+        // img:not([class*="leaflet-marker-icon"]) { // doesnt work???
+        img.user_profile_img {
             max-width: 468px;
             background-color: #666666;
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
+            // .leaflet-marker-icon { // doesn't work too...
+            //     max-width: unset !important;
+            //     background-color: unset !important;
+            //     background-position: unset !important;
+            //     background-size: unset !important;
+            //     background-repeat: unset !important;
+            // }
+        }
+        #location {
+            width: 400px !important;
         }
     }
 

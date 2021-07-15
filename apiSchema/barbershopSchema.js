@@ -3,7 +3,7 @@ const Joi = require('@hapi/joi');
 module.exports.create = Joi.object().keys({
     title: Joi.string().required(),
     description: Joi.string().allow(null, ''),
-    location: Joi.string().required(),
+    // location: Joi.string().required(),
     // myServices: Joi.object().allow(null, '')
     // {
     //  '4f1a58e7-661e-428d-a7a3-b4ee8430e296': { service_title: '', service_description: '', service_price: '' },

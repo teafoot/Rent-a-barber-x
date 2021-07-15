@@ -1,7 +1,6 @@
 const userService = require('../service/userService');
 const messageService = require('../service/messageService')
 const constants = require('../constants/index');
-const viewUtils = require('../helper/viewUtils');
 const dbHelper = require('../helper/dbHelper');
 
 module.exports.homePage = async (req, res) => {

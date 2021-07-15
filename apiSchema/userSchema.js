@@ -24,5 +24,8 @@ module.exports.login = Joi.object().keys({
 
 module.exports.profile = Joi.object().keys({
     profile_image_upload: Joi.string().allow(null, ''),
-    profile_status: Joi.string().allow(null, '')
+    profile_status: Joi.string().allow(null, ''),
+    location: Joi.string().allow(null, ''),
+    latitude: Joi.string().allow(null, ''),
+    longitude: Joi.string().allow(null, '')
 });

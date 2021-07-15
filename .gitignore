@@ -3,7 +3,8 @@ node_modules
 .vscode
 
 public/dist
-public/uploads/profile-pictures
+public/uploads/profile-pictures/*
+!public/uploads/profile-pictures/default-profile.svg
 
 public/css/app.css
 

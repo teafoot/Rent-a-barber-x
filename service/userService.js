@@ -57,7 +57,8 @@ module.exports.getUserFromToken = async (token) => {
             "profile_status": 1,
             "user_type": 1,
             username: 1,
-            email: 1
+            email: 1,
+            location: 1
         })
         // console.log(user) // { email: 'test9@test.com', createdAt: 2021 - 06 - 02T01: 22: 44.055Z, updatedAt: 2021 - 06 - 02T01: 22: 44.055Z, id_user: 60b6dd64595beb03f045a134 }
         if (!user) {
@@ -144,15 +145,21 @@ module.exports.getBarbersWhere = async (query) => {
 };
 
 module.exports.saveProfile = async (data) => {
-    let { token, profile_image_upload, profile_status } = data;
+    // console.log({data})
+    let { token, profile_image_upload, profile_status, location, latitude, longitude } = data;
 
     try {
         // const user = await User.findOne({ email });
         const user = await module.exports.getUserFromToken(token)
         user.profile_status = profile_status
-
         if (profile_image_upload) {
             user.profile_image_upload = profile_image_upload;
+        }
+
+        user.location = {
+            location_name: location,
+            latitude,
+            longitude
         }
 
         let result = await user.save();

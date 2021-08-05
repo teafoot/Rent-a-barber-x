@@ -6,9 +6,11 @@
   "scripts": {
     "node-start": "node server.js",
     "node-dev": "nodemon server.js",
+    "webpack": "webpack --mode development",
     "webpack:watch": "webpack --w --mode development",
     "scss": "node-sass ./public/scss -o ./public/css",
     "scss:watch": "npm run scss && node-sass --watch ./public/scss -o ./public/css",
+    "heroku-postbuild": "npm run webpack && npm run scss && npm run node-start",
     "test_login": "npx mocha tests/test/test_login.js",
     "test_register": "npx mocha tests/test/test_register.js",
     "test_profile": "npx mocha tests/test/test_profile.js",
@@ -72,5 +74,8 @@
     "nodemon": "^2.0.2",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3"
+  },
+  "engines": {
+    "node": "14.15.1"
   }
 }

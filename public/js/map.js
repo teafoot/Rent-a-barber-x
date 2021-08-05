@@ -84,7 +84,7 @@ if (window.location.href.includes('profile')) { // workaround to script only be 
     function updateLatLng(lat, lng) {
         document.getElementById('latitude').value = lat;
         document.getElementById('longitude').value = lng;
-        map.panTo([lat, lng]);
+        // map.panTo([lat, lng]);
     }
 
     // marker.on("drag", function (e) { // autoPan

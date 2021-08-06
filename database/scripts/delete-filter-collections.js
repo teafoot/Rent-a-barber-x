@@ -8,8 +8,8 @@ client.connect(function (err) {
     const db = client.db(dbName)
 
     let collections = [// change this value
-        'users',
-        'barbershops', 
+        // 'users',
+        // 'barbershops', 
         'messages'
     ] 
     dropCollection(db, collections)

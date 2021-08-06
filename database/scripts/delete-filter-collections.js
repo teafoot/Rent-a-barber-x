@@ -1,6 +1,9 @@
 var MongoClient = require('mongodb').MongoClient;
-const client = new MongoClient('mongodb://localhost:27017', { useUnifiedTopology: true });
-const dbName = 'rent-a-barber-x-db';
+const url = process.env.DB_URL
+const dbName = process.env.DB_NAME
+const client = new MongoClient(url, { useUnifiedTopology: true });
+// const url = 'mongodb://localhost:27017'
+// const dbName = 'rent-a-barber-x-db';
 const assert = require("assert");
 
 client.connect(function (err) {

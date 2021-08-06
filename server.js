@@ -69,6 +69,8 @@ app.use(function (err, req, res, next) {
 
 const server = http.createServer(app);
 const io = socketio(server);
+//Allow Cross Domain Requests
+io.set('transports', ['websocket']);
 io.on('connection', socket => {
     console.log('socket.io connection was established')
     

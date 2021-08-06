@@ -1,5 +1,11 @@
 // const socket = io();
-const socket = io.connect('https://rent-barber-x.herokuapp.com/');
+var connectionOptions = {
+    "force new connection": true,
+    "reconnectionAttempts": "Infinity", //avoid having user reconnect manually in order to prevent dead clients after a server restart
+    "timeout": 10000, //before connect_error and connect_timeout are emitted.
+    "transports": ["websocket"]
+};
+const socket = io.connect('https://rent-barber-x.herokuapp.com/', connectionOptions);
 const ROOM = "my_room"
 socket.emit('subscribe', ROOM);
 

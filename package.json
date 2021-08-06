@@ -57,9 +57,8 @@
     "shortid": "^2.2.14",
     "socket.io": "^2.4.0",
     "sweetalert2": "^8.2.6",
-    "uuid": "^8.3.2"
-  },
-  "devDependencies": {
+    "uuid": "^8.3.2",
+
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "babel-loader": "^8.0.5",
@@ -75,7 +74,8 @@
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3"
   },
+  "devDependencies": {},
   "engines": {
-    "node": "10.24.1"
+    "node": "14.15.1"
   }
 }

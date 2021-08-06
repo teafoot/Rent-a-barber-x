@@ -1,0 +1,310 @@
+img {
+  max-height: 30px;
+  height: 30px !important; }
+
+@media only screen and (min-width: 0px) and (max-width: 599px) {
+  .two-columns {
+    all: initial;
+    display: flex;
+    flex-direction: column; }
+    .two-columns * {
+      all: unset; }
+    .two-columns img {
+      width: 40px; }
+    .two-columns .left-sidebar {
+      display: flex;
+      flex-direction: column;
+      width: 100%; }
+      .two-columns .left-sidebar .contact-list-header {
+        background-color: #eee;
+        padding: 13px;
+        border: 2px solid #ddd;
+        border-radius: 2px;
+        font-weight: bold; }
+      .two-columns .left-sidebar .contact-list {
+        overflow-y: scroll;
+        max-height: 150px;
+        border: 2px solid #ddd;
+        border-radius: 2px; }
+        .two-columns .left-sidebar .contact-list .contact {
+          display: flex;
+          flex-direction: row;
+          padding: 5px 0 5px 5px;
+          border-bottom: 1px solid gray; }
+          .two-columns .left-sidebar .contact-list .contact img {
+            align-self: center;
+            max-width: 30px;
+            border-radius: 50%;
+            background-color: #666666;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat; }
+          .two-columns .left-sidebar .contact-list .contact .contact-info {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            margin-left: 5px; }
+            .two-columns .left-sidebar .contact-list .contact .contact-info > div {
+              display: flex;
+              flex-direction: column; }
+            .two-columns .left-sidebar .contact-list .contact .contact-info p {
+              padding: 0;
+              margin: 0; }
+            .two-columns .left-sidebar .contact-list .contact .contact-info > div > .username {
+              font-size: 12px;
+              font-weight: bold; }
+            .two-columns .left-sidebar .contact-list .contact .contact-info > div > .last_message {
+              font-size: 10px;
+              overflow: auto;
+              max-width: 300px;
+              max-height: 20px; }
+            .two-columns .left-sidebar .contact-list .contact .contact-info .timestamp {
+              margin-left: auto;
+              margin-bottom: auto;
+              font-size: 8px; }
+    .two-columns .right-sidebar .msger-header-title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: #ddd;
+      padding: 5px; }
+      .two-columns .right-sidebar .msger-header-title img {
+        align-self: center;
+        max-width: 30px;
+        border-radius: 50%;
+        background-color: #666666;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat; }
+      .two-columns .right-sidebar .msger-header-title p {
+        margin-left: 5px;
+        font-weight: bold; }
+    .two-columns .right-sidebar .msger-chat {
+      display: block;
+      background: #ccc;
+      padding: 10px;
+      height: 200px;
+      overflow-y: auto; }
+      .two-columns .right-sidebar .msger-chat img {
+        align-self: center;
+        max-width: 30px;
+        border-radius: 50%;
+        background-color: #666666;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0 5px; }
+      .two-columns .right-sidebar .msger-chat .msg {
+        padding: 15px 10px; }
+        .two-columns .right-sidebar .msger-chat .msg .msg-text {
+          max-height: 50px;
+          overflow-y: auto; }
+        .two-columns .right-sidebar .msger-chat .msg .msg-bubble {
+          padding-bottom: 10px !important; }
+      .two-columns .right-sidebar .msger-chat .left-msg {
+        display: flex;
+        flex-direction: row; }
+        .two-columns .right-sidebar .msger-chat .left-msg img {
+          margin-top: auto; }
+        .two-columns .right-sidebar .msger-chat .left-msg .msg-bubble {
+          display: flex;
+          flex-direction: column;
+          background: #579ffb;
+          border-radius: 10px;
+          border-bottom-left-radius: 0;
+          padding: 15px 10px 0 10px; }
+          .two-columns .right-sidebar .msger-chat .left-msg .msg-bubble .msg-info {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between; }
+            .two-columns .right-sidebar .msger-chat .left-msg .msg-bubble .msg-info .msg-info-name {
+              font-weight: bold; }
+      .two-columns .right-sidebar .msger-chat .right-msg {
+        display: flex;
+        flex-direction: row-reverse; }
+        .two-columns .right-sidebar .msger-chat .right-msg img {
+          margin-top: auto; }
+        .two-columns .right-sidebar .msger-chat .right-msg .msg-bubble {
+          display: flex;
+          flex-direction: column;
+          background: #579ffb;
+          border-radius: 10px;
+          border-bottom-right-radius: 0;
+          padding: 15px 10px 0 10px; }
+          .two-columns .right-sidebar .msger-chat .right-msg .msg-bubble .msg-info {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between; }
+            .two-columns .right-sidebar .msger-chat .right-msg .msg-bubble .msg-info .msg-info-name {
+              font-weight: bold; }
+    .two-columns .right-sidebar .msger-inputarea {
+      display: flex;
+      flex-direction: row;
+      padding: 10px; }
+      .two-columns .right-sidebar .msger-inputarea .msger-input {
+        flex: 1;
+        padding: 5px;
+        border: 1px solid #ddd; }
+      .two-columns .right-sidebar .msger-inputarea .msger-send-btn {
+        background: #00c441;
+        padding: 0 5px;
+        border-radius: 5px;
+        color: #fff; } }
+
+@media only screen and (min-width: 600px) {
+  .two-columns {
+    all: initial;
+    display: flex;
+    flex-direction: row; }
+    .two-columns * {
+      all: unset; }
+    .two-columns img {
+      width: 40px; }
+    .two-columns .left-sidebar {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      max-width: 300px; }
+      .two-columns .left-sidebar .contact-list-header {
+        background-color: #eee;
+        padding: 8px;
+        border: 2px solid #ddd;
+        border-radius: 2px;
+        font-weight: bold; }
+      .two-columns .left-sidebar .contact-list {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto; }
+        .two-columns .left-sidebar .contact-list .contact {
+          display: flex;
+          flex-direction: row;
+          padding: 5px 0 5px 5px;
+          border-bottom: 1px solid gray; }
+          .two-columns .left-sidebar .contact-list .contact img {
+            align-self: center;
+            max-width: 30px;
+            border-radius: 50%;
+            background-color: #666666;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat; }
+          .two-columns .left-sidebar .contact-list .contact .contact-info {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            margin-left: 5px; }
+            .two-columns .left-sidebar .contact-list .contact .contact-info > div {
+              display: flex;
+              flex-direction: column; }
+            .two-columns .left-sidebar .contact-list .contact .contact-info p {
+              padding: 0;
+              margin: 0; }
+            .two-columns .left-sidebar .contact-list .contact .contact-info > div > .username {
+              font-size: 12px;
+              font-weight: bold; }
+            .two-columns .left-sidebar .contact-list .contact .contact-info > div > .last_message {
+              font-size: 10px;
+              overflow: auto;
+              max-width: 300px;
+              max-height: 20px; }
+            .two-columns .left-sidebar .contact-list .contact .contact-info .timestamp {
+              min-width: 35px;
+              margin-left: auto;
+              margin-bottom: auto;
+              font-size: 8px; }
+    .two-columns .right-sidebar {
+      flex: 3; }
+      .two-columns .right-sidebar .msger-header-title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: #eee;
+        padding: 5px; }
+        .two-columns .right-sidebar .msger-header-title img {
+          align-self: center;
+          max-width: 30px;
+          border-radius: 50%;
+          background-color: #666666;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat; }
+        .two-columns .right-sidebar .msger-header-title p {
+          margin-left: 5px;
+          font-weight: bold; }
+      .two-columns .right-sidebar .chat-content {
+        display: flex;
+        flex-direction: column; }
+        .two-columns .right-sidebar .chat-content .msger-chat {
+          display: flex;
+          flex-direction: column;
+          height: calc(100vh - 160px);
+          overflow-y: auto;
+          background: #ccc;
+          padding: 10px; }
+          .two-columns .right-sidebar .chat-content .msger-chat img {
+            align-self: center;
+            max-width: 30px;
+            border-radius: 50%;
+            background-color: #666666;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0 5px; }
+          .two-columns .right-sidebar .chat-content .msger-chat .msg {
+            padding: 15px 10px; }
+            .two-columns .right-sidebar .chat-content .msger-chat .msg .msg-text {
+              max-height: 50px;
+              overflow-y: auto; }
+            .two-columns .right-sidebar .chat-content .msger-chat .msg .msg-bubble {
+              padding-bottom: 10px !important;
+              min-width: 180px; }
+          .two-columns .right-sidebar .chat-content .msger-chat .left-msg {
+            display: flex;
+            flex-direction: row; }
+            .two-columns .right-sidebar .chat-content .msger-chat .left-msg img {
+              margin-top: auto; }
+            .two-columns .right-sidebar .chat-content .msger-chat .left-msg .msg-bubble {
+              display: flex;
+              flex-direction: column;
+              background: #579ffb;
+              border-radius: 10px;
+              border-bottom-left-radius: 0;
+              padding: 15px 10px 0 10px; }
+              .two-columns .right-sidebar .chat-content .msger-chat .left-msg .msg-bubble .msg-info {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between; }
+                .two-columns .right-sidebar .chat-content .msger-chat .left-msg .msg-bubble .msg-info .msg-info-name {
+                  font-weight: bold; }
+          .two-columns .right-sidebar .chat-content .msger-chat .right-msg {
+            display: flex;
+            flex-direction: row-reverse; }
+            .two-columns .right-sidebar .chat-content .msger-chat .right-msg img {
+              margin-top: auto; }
+            .two-columns .right-sidebar .chat-content .msger-chat .right-msg .msg-bubble {
+              display: flex;
+              flex-direction: column;
+              background: #579ffb;
+              border-radius: 10px;
+              border-bottom-right-radius: 0;
+              padding: 15px 10px 0 10px; }
+              .two-columns .right-sidebar .chat-content .msger-chat .right-msg .msg-bubble .msg-info {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between; }
+                .two-columns .right-sidebar .chat-content .msger-chat .right-msg .msg-bubble .msg-info .msg-info-name {
+                  font-weight: bold; }
+        .two-columns .right-sidebar .chat-content .msger-inputarea {
+          outline: 1px solid #ddd;
+          display: flex;
+          flex-direction: row;
+          padding: 10px; }
+          .two-columns .right-sidebar .chat-content .msger-inputarea .msger-input {
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #ddd; }
+          .two-columns .right-sidebar .chat-content .msger-inputarea .msger-send-btn {
+            background: #00c441;
+            padding: 0 5px;
+            border-radius: 5px;
+            color: #fff; } }

@@ -10,7 +10,7 @@
     "webpack:watch": "webpack --w --mode development",
     "scss": "node-sass ./public/scss -o ./public/css",
     "scss:watch": "npm run scss && node-sass --watch ./public/scss -o ./public/css",
-    "heroku-postbuild": "npm run webpack && npm run scss && npm run node-start",
+    "heroku-postbuild": "npm run webpack && npm run scss",
     "test_login": "npx mocha tests/test/test_login.js",
     "test_register": "npx mocha tests/test/test_register.js",
     "test_profile": "npx mocha tests/test/test_profile.js",

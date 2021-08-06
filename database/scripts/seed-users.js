@@ -1,3 +1,4 @@
+require('dotenv').config()
 const faker = require("faker");
 const MongoClient = require("mongodb").MongoClient;
 const assert = require("assert");
@@ -7,8 +8,10 @@ const {
     v4: uuidv4,
 } = require('uuid');
 
-const url = "mongodb://localhost:27017";
-const dbName = "rent-a-barber-x-db"
+// const url = "mongodb://localhost:27017";
+const url = process.env.DB_URL
+// const dbName = "rent-a-barber-x-db"
+const dbName = process.env.DB_NAME
 
 MongoClient.connect(
     url,

@@ -1,6 +1,8 @@
 const MongoClient = require("mongodb").MongoClient;
-const url = "mongodb://localhost:27017";
-const dbName = "rent-a-barber-x-db"
+// const url = "mongodb://localhost:27017";
+// const dbName = "rent-a-barber-x-db"
+const url = process.env.DB_URL  
+const dbName = process.env.DB_NAME
 const {
     v1: uuidv1,
     v4: uuidv4,

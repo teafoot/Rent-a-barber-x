@@ -1,6 +1,8 @@
 const MongoClient = require("mongodb").MongoClient;
-const url = "mongodb://localhost:27017";
-const dbName = "rent-a-barber-x-db"
+// const url = "mongodb://localhost:27017";
+const url = process.env.DB_URL
+// const dbName = "rent-a-barber-x-db"
+const dbName = process.env.DB_NAME
 const faker = require("faker");
 const assert = require("assert");
 

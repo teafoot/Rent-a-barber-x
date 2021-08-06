@@ -3,6 +3,13 @@ const userService = require('../service/userService');
 const barbershopService = require('../service/barbershopService');
 // const paginateResult = require('../helper/dbHelper').paginateResult
 
+module.exports.landingPage = async (req, res) => {
+    res.render('landing', {
+        // layout: 'layout.navbar.handlebars',
+        pageTitle: 'BarberX - Landing'
+    })
+}
+
 module.exports.homePage = async (req, res) => {
     let token = req.cookies._authToken || req.headers.authorization.split('Bearer ')[1]; // get the token from cookies OR request headers if not found
     const user = await userService.getUserFromToken(token)

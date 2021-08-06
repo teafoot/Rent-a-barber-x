@@ -9,9 +9,10 @@ const userValidation = require('../middleware/userValidation')
 // const paginateResults = require('../middleware/pagination').paginateResults
 
 // base route - redirect to login form or homepage
-router.get('/', tokenValidation.validateToken, (req, res, next) => {
-    res.redirect('/home');
-});
+// router.get('/', tokenValidation.validateToken, (req, res, next) => {
+//     res.redirect('/home');
+// });
+router.get('/', homeController.landingPage);
 
 router.get('/login', userController.formLogin)
 router.get('/register', userController.formRegister)

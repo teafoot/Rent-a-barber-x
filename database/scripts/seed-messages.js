@@ -21,6 +21,9 @@ async function seedTestMessages(db) {
     const messagesCollection = db.collection("messages")
 
     let now = new Date()
+    var dateOffset = (24 * 60 * 60 * 1000) * 30; //30 days
+    now.setTime(now.getTime() - dateOffset);
+
     const messagesCount = 40;
     for (let i = 0; i < messagesCount; i++) {
         // const randomBoolean = Math.random() < 0.5;

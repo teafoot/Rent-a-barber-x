@@ -1,4 +1,5 @@
-const socket = io();
+// const socket = io();
+const socket = io.connect('https://rent-barber-x.herokuapp.com/');
 const ROOM = "my_room"
 socket.emit('subscribe', ROOM);
 

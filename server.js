@@ -52,6 +52,7 @@ app.use('/', require('./routes/webRoutes'));
 app.use('/api/user', require('./routes/userApiRoutes'));
 app.use('/api/barbershop', require('./routes/barbershopApiRoutes'));
 app.use('/api/messages', require('./routes/messageApiRoutes'));
+app.use('/api/appointment', require('./routes/appointmentApiRoutes'));
 app.use('/api/product', require('./routes/productRoutes'));
 // 404 not found
 app.use((req, res, next) => {

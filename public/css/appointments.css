@@ -1,0 +1,293 @@
+.collapsibleAppointment {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    border-bottom: 3px solid black;
+    border-left: 3px solid black;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  
+  .active.collapsibleAppointment, .collapsibleAppointment:hover {
+    background-color: #555;
+  }
+  
+  .contentAppointment {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }
+
+  .appointmentHeading {
+    line-height: 45px;
+    /* background-color: wheat; */
+    text-size-adjust: 25;
+    padding-left: 10px;
+
+  }
+
+  .appointmentHeadingText {
+      display: inline-block;
+      vertical-align: middle;
+     
+  }
+
+  .colourGrid {
+    display: grid;
+    grid-template-columns: 65px 65px 65px 65px 65px 65px 65px 65px;
+  }
+
+  input[type=radio]{
+    width: 50px;
+    height: 50px;
+  }
+
+  .colourOption:hover {
+    opacity:0.6;
+    cursor: pointer;
+  }
+  
+  .colourOption:active {
+    opacity:0.4;
+    cursor: pointer;
+  }
+
+
+
+
+  .hairGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+.short{
+ display: inline-block;
+ width: 40%;
+}
+
+.long{
+display: inline-block;
+width: 40%;
+margin-left: 10px;
+}
+
+.hairGrid input[type="radio"]{
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.hairGrid input[type="checkbox"]{
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.hairGrid label {
+  display: inline-block;
+  background-color: rgb(85, 177, 231);
+  color: black;
+  text-align: center;
+  padding-top: 10px;
+  border-radius: 8px;
+  margin-left: 4px;
+  margin-right: 4px;
+  border: 5px solid rgb(0, 0, 0);
+}
+
+.hairGrid div {
+  width: 100px;
+  height: 50px;
+}
+
+.hairGrid .women{
+  background-color: rgb(238, 169, 255);
+}
+
+.hairGrid .women:hover {
+  background-color: rgb(255, 192, 229);
+}
+
+.hairGrid .men{
+  background-color: rgb(73, 169, 248);
+}
+.hairGrid .men:hover {
+  background-color: rgb(138, 221, 246);
+}
+
+.hairGrid input[type="checkbox"]:checked + label {
+  box-shadow: 0 0 0 5px rgb(22, 96, 194);
+  opacity: 1;
+  
+ border-color: rgb(255, 255, 255);
+}
+.hairGrid input[type="radio"]:checked + .women {
+  box-shadow: 0 0 0 5px rgb(224, 98, 236);
+  opacity: 1;
+  
+ border-color: rgb(255, 255, 255);
+}
+
+
+
+  .colourHolders input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+  }
+
+  .colourHolders input[type="checkbox"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+  }
+
+  .colourHolders .colourDiv {
+    margin-top: 0px;
+    width: 50px;
+    height: 50px;
+    
+  }
+  .colourHolders .colourDiv label {
+    /* before it was label
+    /* margin-top: 0px;
+    margin-left: 4px;
+    margin-right: 4px; 
+    display: inline-block;*/
+    width: 50px;
+    height: 50px;
+    position: relative;
+ 
+    border-radius: 8px;
+    border: 5px solid rgb(0, 0, 0);
+    /* box-shadow: 0 0 0 2px rgb(104, 137, 197); */
+    /* box-shadow: 0 0 0 2px rgb(0, 0, 0); */
+  }
+
+  .colourHolders label[for="noColour"] {
+    /* before it was label
+    /* margin-top: 0px;
+    margin-left: 4px;
+    margin-right: 4px; 
+    display: inline-block;*/
+    width: 80px;
+    height: 35px;
+    position: relative;
+    margin-bottom: 10px;
+ 
+    border-radius: 8px;
+    border: 5px solid rgb(0, 0, 0);
+    /* box-shadow: 0 0 0 2px rgb(104, 137, 197); */
+    /* box-shadow: 0 0 0 2px rgb(0, 0, 0); */
+  }
+  .colourHolders label[for="noColour"] p {
+    margin-top: 0;
+   
+    text-align: center;
+  }
+
+  .colourHolders input[type="radio"]:checked + label {
+     box-shadow: 0 0 0 5px rgb(98, 158, 236);
+     opacity: 1;
+    /* box-shadow: 0 0 0 5px rgb(0, 240, 52); */ 
+    
+    border-color: rgb(255, 255, 255);
+ 
+
+}
+
+.colourHolders fieldset input[type="checkbox"]:checked + label{
+  box-shadow: 0 0 0 5px rgb(98, 158, 236);
+  opacity: 1;
+ /* box-shadow: 0 0 0 5px rgb(0, 240, 52); */ 
+ 
+ border-color: rgb(255, 255, 255);
+
+
+}
+
+.colourHolders  input[type="radio"]#noColour:checked + label {
+  color: rgb(98, 158, 236);
+  background-color: none;
+  opacity: 1;
+ /* box-shadow: 0 0 0 5px rgb(0, 240, 52); */ 
+
+}
+
+.colourHolders  input[type="checkbox"]#noColour:checked + label {
+  color: rgb(98, 158, 236);
+  background-color: none;
+  opacity: 1;
+ /* box-shadow: 0 0 0 5px rgb(0, 240, 52); */ 
+
+}
+
+.colourHolders label:hover {
+  box-shadow: 0 0 0 5px rgb(60, 96, 143);
+  border-color: rgb(165, 165, 165);
+  opacity: 0.8;
+}
+
+.colourHolders #noColour {
+  display: inline-block;
+  margin-top: 0;
+  border-radius: 12px;
+  border: 6px solid rgb(197, 197, 197);
+  width: 50px;
+  height: 30px;
+  text-anchor: middle;
+ 
+  /* text-align: center; */
+  
+
+}
+
+.timeItem {
+  display: inline-block;
+}
+
+.timeBox {
+  display: inline-block;
+  margin-left: 25px;
+  
+}
+
+.timeRow {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.dayText{
+  /* font-size: 25px; */
+  color: #1d94e4;
+  margin-left: 25px;
+  padding-left: 25px; 
+  width: 120px;
+  
+}
+
+/* .appointmentFieldSet{
+  display: none;
+} */
+
+.dateChoiceItem {
+  display: inline-block;
+  margin-left: 25px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.displayAppointment {
+  display: inline-block;
+  width: 250px;
+}
+
+.topRowOfDisplay {
+  margin-top: 10px;
+}

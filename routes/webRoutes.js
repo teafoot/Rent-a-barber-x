@@ -21,9 +21,14 @@ router.get('/search', tokenValidation.validateToken, homeController.search)
 router.get('/profile', tokenValidation.validateToken, homeController.profilePage)
 router.get('/logout', tokenValidation.validateToken, userController.logout)
 
+router.get('/serviceHair', tokenValidation.validateToken, homeController.serviceHair)
+router.get('/serviceDye', tokenValidation.validateToken, homeController.serviceDye)
+router.get('/serviceOther', tokenValidation.validateToken, homeController.serviceOther)
+
 router.get('/my-barbershop', tokenValidation.validateToken, userValidation.onlyBarberAccess, barbershopController.myBarbershop)
 
 router.get('/profile_id/:id_user', tokenValidation.validateToken, homeController.profileIDPage)
+router.get('/makeAppointment/profile_id/:id_user', tokenValidation.validateToken, homeController.appointment)
 router.get('/barbershop_id/:id_barbershop', tokenValidation.validateToken, homeController.barbershopIDPage)
 
 router.get('/messages', tokenValidation.validateToken, messageController.homePage)

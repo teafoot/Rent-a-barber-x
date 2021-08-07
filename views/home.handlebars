@@ -11,6 +11,20 @@
                     <a class="nav-link" id="custom-tabs-four-preview-tab" data-toggle="pill" href="#custom-tabs-four-preview"
                         role="tab" aria-controls="custom-tabs-four-preview" aria-selected="false">Barbers</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="appointmentsView-tab" data-toggle="pill" href="#appointmentsView" role="tab"
+                        aria-controls="appointmentsView" aria-selected="false">Appointments Create</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="appointmentsAllView-tab" data-toggle="pill" href="#appointmentsAllView"
+                        role="tab" aria-controls="appointmentsAllView" aria-selected="false">Appointments Read</a>
+                </li>
+                {{#if isBarber}}
+                <li class="nav-item">
+                    <a class="nav-link" id="servicesView-tab" data-toggle="pill" href="#servicesView" role="tab"
+                        aria-controls="servicesView" aria-selected="false">Services View</a>
+                </li>
+                {{/if}}
             </ul>
         </div>
         <div class="card-body">
@@ -51,6 +65,7 @@
                                 <p class="hide-scrollbar" style="overflow-y:auto; max-height:100px;">{{{profile_status}}}</p>
                                 <p>{{{email}}}</p>
                                 <a href="/profile_id/{{{_id}}}"><button>View Barber profile</button></a>
+                                <a href="/makeAppointment/profile_id/{{{_id}}}"><button>Make Appointment</button></a>
                             </div>
                         </div>
                         {{/each}}
@@ -62,6 +77,651 @@
                     <b>New Barbers</b>
                     <hr>
                 </div>
+                <div class="tab-pane fade" id="appointmentsView" role="tabpanel" aria-labelledby="appointmentsView-tab">
+                    <p>Appoint</p>
+
+                    <div class="da-floatbox w3-margin">
+                        <form>
+                            <p>Hair Styles:</p>
+                            <fieldset id="choice1">
+                                <div class="hairStyles">
+                                    <div class="short">
+                                        <p>Short:</p>
+                                        <div class="hairGrid">
+                                            <input type="radio" name="choice1" id="hair1" value="1" checked>
+                                            <label for="hair1" class="men">
+                                                <p>Caesar</p>
+                                            </label>
+                                            <input type="radio" name="choice1" id="hair2" value="1">
+                                            <label for="hair2" class="women">
+                                                <p>Grimit</p>
+                                            </label>
+                                            <input type="radio" name="choice1" id="hair3" value="1">
+                                            <label for="hair3" class="women">
+                                                <p>Timberey</p>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="long">
+                                        <p>Long:</p>
+                                        <div class="hairGrid">
+                                            <input type="radio" name="choice1" id="hair4" value="1">
+                                            <label for="hair4" class="women">
+                                                <p>Long Braids</p>
+                                            </label>
+                                            <input type="radio" name="choice1" id="hair5" value="1">
+                                            <label for="hair5" class="women">
+                                                <p>Tousled Lob</p>
+                                            </label>
+                                            <input type="radio" name="choice1" id="hair6" value="1">
+                                            <label for="hair6" class="women">
+                                                <p>Layered Bob</p>
+                                            </label>
+                                            <input type="radio" name="choice1" id="hair7" value="1">
+                                            <label for="hair7" class="men">
+                                                <p>The chalamet</p>
+                                            </label>
+                                            <input type="radio" name="choice1" id="hair8" value="1">
+                                            <label for="hair8" class="men">
+                                                <p>A trim</p>
+                                            </label>
+                                            <input type="radio" name="choice1" id="hair9" value="1">
+                                            <label for="hair9" class="men">
+                                                <p>Afro</p>
+                                            </label>
+                                            <input type="radio" name="choice1" id="hair10" value="1">
+                                            <label for="hair10" class="men">
+                                                <p>Half Up</p>
+                                            </label>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </fieldset>
+
+
+                            <div class="colourHolders">
+                                <p>Dyes Available: </p>
+                                <input type="radio" name="choice" id="noColour" value="1">
+                                <label for="noColour">
+                                    <p>None</p>
+                                </label>
+
+                                <div class="colourGrid">
+                                    <div class="colourDiv">
+                                        <input type="radio" name="choice" id="choose-test1" value="1">
+                                        <label for="choose-test1" style="background-color: rgb(49, 101, 214)"></label>
+                                    </div>
+                                    <div class="colourDiv">
+                                        <input type="radio" name="choice" id="choose-test2" value="1">
+                                        <label for="choose-test2"></label>
+                                    </div>
+
+                                    <div class="colourDiv">
+                                        <input type="radio" name="choice" id="choose-test3" value="1">
+                                        <label for="choose-test3" style="background-color: rgb(141, 53, 156)"></label>
+                                    </div>
+                                    <div class="colourDiv">
+                                        <input type="radio" name="choice" id="choose-test4" value="1">
+                                        <label for="choose-test4" style="background-color: rgb(179, 52, 73)"></label>
+                                    </div>
+                                </div>
+
+                            </div>
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="appointmentsAllView" role="tabpanel"
+                    aria-labelledby="appointmentsAllView-tab">
+                    <div class="da-floatbox w3-margin">
+                        
+
+                        {{!-- <b class="appointmentHeading">Pending Appointments</b>
+                        {{#each barbershops}}
+                        <button type="button" class="collapsibleAppointment">{{title}}</button>
+                        <div class="contentAppointment">
+                            <p>Description</p>
+                        </div>
+                        {{/each}}
+
+                        <div class="appointmentHeading">
+                            <b>Future Appointments</b>
+                        </div>
+                        {{#each barbershops}}
+                        <button type="button" class="collapsibleAppointment">{{title}}</button>
+                        <div class="contentAppointment">
+                            <p>Description</p>
+                        </div>
+                        {{/each}} --}}
+
+                        <div class="appointmentHeading">
+                            <b class="appointmentHeadingText">Current Appointments</b>
+                        </div>
+                        {{#each appointments}}
+                        <button type="button" class="collapsibleAppointment"><p class="displayAppointment" style="width:400px;">{{location}}</p><p class="displayAppointment">{{datetime}}</p></button>
+                        <div class="contentAppointment">
+                            
+
+                            
+                            {{#each services}}
+                            <div>
+                                <div class="displayAppointment topRowOfDisplay">
+                                    <p>{{name}}</p>
+                                </div>
+                                <div class="displayAppointment">
+                                    <p>${{price}}</p>
+                                </div>
+                            </div>
+                            {{/each}}
+                            <div>
+                                <div class="displayAppointment">
+                                    <p>Total:</p>
+                                </div>
+                                <div class="displayAppointment">
+                                    <p>${{prices}}</p>
+                                </div>
+                            </div>
+                       
+                            
+                        </div>
+                        {{/each}}
+
+                        {{!-- <button type="button" class="collapsibleAppointment">{{first}}</button>
+                        <div class="contentAppointment">
+                            <p>Description</p>
+                        </div> --}}
+
+
+
+                    </div>
+                </div>
+                <script>
+                    var coll = document.getElementsByClassName("collapsibleAppointment");
+                    var i;
+
+                    for (i = 0; i < coll.length; i++) {
+                        coll[i].addEventListener("click", function () {
+                            this.classList.toggle("active");
+                            var content = this.nextElementSibling;
+                            if (content.style.display === "block") {
+                                content.style.display = "none";
+                            } else {
+                                content.style.display = "block";
+                            }
+                        });
+                    }
+                </script>
+                {{#if isBarber}}
+                <div class="tab-pane fade" id="servicesView" role="tabpanel" aria-labelledby="servicesView-tab">
+                    <div class="da-floatbox w3-margin">
+                        <div class="timeRow">
+                            <p style="width: 200px; margin-left: 290px;">Edit Services</p>
+                        </div>
+                            <form></form>
+                        <div class="timeRow">
+                            <div class="timeItem">
+                                <form action="/serviceHair" method="GET">
+                                <button type="submit" style="margin-left: 200px;" >Hair Styles</button>
+                                </form>
+                            </div>
+                            <div class="timeItem">
+                                <form action="/serviceDye" method="GET">
+                                    <button type="submit">Dyes</button>
+                                </form>
+                            </div>
+                            <div class="timeItem">
+                                <form action="/serviceOther" method="GET">
+                                    <button type="submit">Other Services</button>
+                                </form>
+                            </div>
+                        </div>
+                        <form>
+                            {{!-- Monday --}}
+                        <div class="timeRow">
+                            <p style="width: 200px; margin-left: 280px; margin-top: 30px;">Edit Availability</p>
+                        </div>
+                        <div class="timeRow">  
+                            <div class="timeBox">
+                                <div class="timeItem dayText">
+                                    <p>Monday</p>
+                                </div>
+                                <div class="timeItem">
+                                    <p>Start Time</p>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="1StartTime">
+                                        <option value ="1">1:00</option>
+                                        <option value ="2">2:00</option>
+                                        <option value ="3">3:00</option>
+                                        <option value ="4">4:00</option>
+                                        <option value ="5">5:00</option>
+                                        <option value ="6">6:00</option>
+                                        <option value ="7">7:00</option>
+                                        <option value ="8">8:00</option>
+                                        <option value ="9">9:00</option>
+                                        <option value ="10">10:00</option>
+                                        <option value ="11">11:00</option>
+                                        <option value ="12">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="1StartType">
+                                        <option value ="am">AM</option>
+                                        <option value ="pm">PM</option>
+                                    </select>
+                                </div>
+                            </div>  
+                            <div class="timeBox">     
+                                <div class="timeItem">
+                                    <p>End Time</p>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="1EndTime">
+                                        <option value ="1">1:00</option>
+                                        <option value ="2">2:00</option>
+                                        <option value ="3">3:00</option>
+                                        <option value ="4">4:00</option>
+                                        <option value ="5">5:00</option>
+                                        <option value ="6">6:00</option>
+                                        <option value ="7">7:00</option>
+                                        <option value ="8">8:00</option>
+                                        <option value ="9">9:00</option>
+                                        <option value ="10">10:00</option>
+                                        <option value ="11">11:00</option>
+                                        <option value ="12">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="1EndType">
+                                        <option value ="am">AM</option>
+                                        <option value ="pm">PM</option>
+                                    </select>
+                                </div>    
+                            </div>
+                        </div>
+                            {{!-- Tuesday --}}
+                        <div class="timeRow">  
+                            <div class="timeBox">
+                                <div class="timeItem dayText">
+                                    <p>Tuesday</p>
+                                </div>
+                                <div class="timeItem">
+                                    <p>Start Time</p>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="2StartTime">
+                                        <option value ="1">1:00</option>
+                                        <option value ="2">2:00</option>
+                                        <option value ="3">3:00</option>
+                                        <option value ="4">4:00</option>
+                                        <option value ="5">5:00</option>
+                                        <option value ="6">6:00</option>
+                                        <option value ="7">7:00</option>
+                                        <option value ="8">8:00</option>
+                                        <option value ="9">9:00</option>
+                                        <option value ="10">10:00</option>
+                                        <option value ="11">11:00</option>
+                                        <option value ="12">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="2StartType">
+                                        <option value ="am">AM</option>
+                                        <option value ="pm">PM</option>
+                                    </select>
+                                </div>
+                            </div>  
+                            <div class="timeBox">     
+                                <div class="timeItem">
+                                    <p>End Time</p>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="2EndTime">
+                                        <option value ="1">1:00</option>
+                                        <option value ="2">2:00</option>
+                                        <option value ="3">3:00</option>
+                                        <option value ="4">4:00</option>
+                                        <option value ="5">5:00</option>
+                                        <option value ="6">6:00</option>
+                                        <option value ="7">7:00</option>
+                                        <option value ="8">8:00</option>
+                                        <option value ="9">9:00</option>
+                                        <option value ="10">10:00</option>
+                                        <option value ="11">11:00</option>
+                                        <option value ="12">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="2EndType">
+                                        <option value ="am">AM</option>
+                                        <option value ="pm">PM</option>
+                                    </select>
+                                </div>    
+                            </div>
+                        </div>
+                {{!-- Wednesday --}}
+                    <div class="timeRow">  
+                            <div class="timeBox">
+                                <div class="timeItem dayText">
+                                    <p>Wednesday</p>
+                                </div>
+                                <div class="timeItem">
+                                    <p>Start Time</p>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="3StartTime">
+                                        <option value ="1">1:00</option>
+                                        <option value ="2">2:00</option>
+                                        <option value ="3">3:00</option>
+                                        <option value ="4">4:00</option>
+                                        <option value ="5">5:00</option>
+                                        <option value ="6">6:00</option>
+                                        <option value ="7">7:00</option>
+                                        <option value ="8">8:00</option>
+                                        <option value ="9">9:00</option>
+                                        <option value ="10">10:00</option>
+                                        <option value ="11">11:00</option>
+                                        <option value ="12">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="3StartType">
+                                        <option value ="am">AM</option>
+                                        <option value ="pm">PM</option>
+                                    </select>
+                                </div>
+                            </div>  
+
+                            <div class="timeBox">     
+                                
+                                <div class="timeItem">
+                                    <p>End Time</p>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="3EndTime">
+                                        <option value ="1">1:00</option>
+                                        <option value ="2">2:00</option>
+                                        <option value ="3">3:00</option>
+                                        <option value ="4">4:00</option>
+                                        <option value ="5">5:00</option>
+                                        <option value ="6">6:00</option>
+                                        <option value ="7">7:00</option>
+                                        <option value ="8">8:00</option>
+                                        <option value ="9">9:00</option>
+                                        <option value ="10">10:00</option>
+                                        <option value ="11">11:00</option>
+                                        <option value ="12">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="3EndType">
+                                        <option value ="am">AM</option>
+                                        <option value ="pm">PM</option>
+                                    </select>
+                                </div>    
+                            </div>
+                        </div>
+
+                        {{!-- Thursday --}}
+                        <div class="timeRow">  
+                            <div class="timeBox">
+                                <div class="timeItem dayText">
+                                    <p>Thursday</p>
+                                </div>
+                                <div class="timeItem">
+                                    <p>Start Time</p>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="4StartTime">
+                                        <option value ="1">1:00</option>
+                                        <option value ="2">2:00</option>
+                                        <option value ="3">3:00</option>
+                                        <option value ="4">4:00</option>
+                                        <option value ="5">5:00</option>
+                                        <option value ="6">6:00</option>
+                                        <option value ="7">7:00</option>
+                                        <option value ="8">8:00</option>
+                                        <option value ="9">9:00</option>
+                                        <option value ="10">10:00</option>
+                                        <option value ="11">11:00</option>
+                                        <option value ="12">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="4StartType">
+                                        <option value ="am">AM</option>
+                                        <option value ="pm">PM</option>
+                                    </select>
+                                </div>
+                            </div>  
+
+                            <div class="timeBox">     
+                                
+                                <div class="timeItem">
+                                    <p>End Time</p>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="4EndTime">
+                                        <option value ="1">1:00</option>
+                                        <option value ="2">2:00</option>
+                                        <option value ="3">3:00</option>
+                                        <option value ="4">4:00</option>
+                                        <option value ="5">5:00</option>
+                                        <option value ="6">6:00</option>
+                                        <option value ="7">7:00</option>
+                                        <option value ="8">8:00</option>
+                                        <option value ="9">9:00</option>
+                                        <option value ="10">10:00</option>
+                                        <option value ="11">11:00</option>
+                                        <option value ="12">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="4EndType">
+                                        <option value ="am">AM</option>
+                                        <option value ="pm">PM</option>
+                                    </select>
+                                </div>    
+                            </div>
+                        </div>
+
+                        {{!-- Friday --}}
+                        <div class="timeRow">  
+                            <div class="timeBox">
+                                <div class="timeItem dayText">
+                                    <p>Friday</p>
+                                </div>
+                                <div class="timeItem">
+                                    <p>Start Time</p>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="5StartTime">
+                                        <option value ="1">1:00</option>
+                                        <option value ="2">2:00</option>
+                                        <option value ="3">3:00</option>
+                                        <option value ="4">4:00</option>
+                                        <option value ="5">5:00</option>
+                                        <option value ="6">6:00</option>
+                                        <option value ="7">7:00</option>
+                                        <option value ="8">8:00</option>
+                                        <option value ="9">9:00</option>
+                                        <option value ="10">10:00</option>
+                                        <option value ="11">11:00</option>
+                                        <option value ="12">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="5StartType">
+                                        <option value ="am">AM</option>
+                                        <option value ="pm">PM</option>
+                                    </select>
+                                </div>
+                            </div>  
+
+                            <div class="timeBox">     
+                                
+                                <div class="timeItem">
+                                    <p>End Time</p>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="5EndTime">
+                                        <option value ="1">1:00</option>
+                                        <option value ="2">2:00</option>
+                                        <option value ="3">3:00</option>
+                                        <option value ="4">4:00</option>
+                                        <option value ="5">5:00</option>
+                                        <option value ="6">6:00</option>
+                                        <option value ="7">7:00</option>
+                                        <option value ="8">8:00</option>
+                                        <option value ="9">9:00</option>
+                                        <option value ="10">10:00</option>
+                                        <option value ="11">11:00</option>
+                                        <option value ="12">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="5EndType">
+                                        <option value ="am">AM</option>
+                                        <option value ="pm">PM</option>
+                                    </select>
+                                </div>    
+                            </div>
+                        </div>
+                        {{!-- Saturday --}}
+                        <div class="timeRow">  
+                            <div class="timeBox">
+                                <div class="timeItem dayText">
+                                    <p>Monday</p>
+                                </div>
+                                <div class="timeItem">
+                                    <p>Start Time</p>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="6StartTime">
+                                        <option value ="1">1:00</option>
+                                        <option value ="2">2:00</option>
+                                        <option value ="3">3:00</option>
+                                        <option value ="4">4:00</option>
+                                        <option value ="5">5:00</option>
+                                        <option value ="6">6:00</option>
+                                        <option value ="7">7:00</option>
+                                        <option value ="8">8:00</option>
+                                        <option value ="9">9:00</option>
+                                        <option value ="10">10:00</option>
+                                        <option value ="11">11:00</option>
+                                        <option value ="12">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="6StartType">
+                                        <option value ="am">AM</option>
+                                        <option value ="pm">PM</option>
+                                    </select>
+                                </div>
+                            </div>  
+
+                            <div class="timeBox">     
+                                
+                                <div class="timeItem">
+                                    <p>End Time</p>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="6EndTime">
+                                        <option value ="1">1:00</option>
+                                        <option value ="2">2:00</option>
+                                        <option value ="3">3:00</option>
+                                        <option value ="4">4:00</option>
+                                        <option value ="5">5:00</option>
+                                        <option value ="6">6:00</option>
+                                        <option value ="7">7:00</option>
+                                        <option value ="8">8:00</option>
+                                        <option value ="9">9:00</option>
+                                        <option value ="10">10:00</option>
+                                        <option value ="11">11:00</option>
+                                        <option value ="12">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="6EndType">
+                                        <option value ="am">AM</option>
+                                        <option value ="pm">PM</option>
+                                    </select>
+                                </div>    
+                            </div>
+                        </div>
+
+                {{!-- Sunday --}}
+                        <div class="timeRow">  
+                            <div class="timeBox">
+                                <div class="timeItem dayText">
+                                    <p>Sunday</p>
+                                </div>
+                                <div class="timeItem">
+                                    <p>Start Time</p>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="7StartTime">
+                                        <option value ="1">1:00</option>
+                                        <option value ="2">2:00</option>
+                                        <option value ="3">3:00</option>
+                                        <option value ="4">4:00</option>
+                                        <option value ="5">5:00</option>
+                                        <option value ="6">6:00</option>
+                                        <option value ="7">7:00</option>
+                                        <option value ="8">8:00</option>
+                                        <option value ="9">9:00</option>
+                                        <option value ="10">10:00</option>
+                                        <option value ="11">11:00</option>
+                                        <option value ="12">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="7StartType">
+                                        <option value ="am">AM</option>
+                                        <option value ="pm">PM</option>
+                                    </select>
+                                </div>
+                            </div>  
+
+                            <div class="timeBox">     
+                                
+                                <div class="timeItem">
+                                    <p>End Time</p>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="7EndTime">
+                                        <option value ="1">1:00</option>
+                                        <option value ="2">2:00</option>
+                                        <option value ="3">3:00</option>
+                                        <option value ="4">4:00</option>
+                                        <option value ="5">5:00</option>
+                                        <option value ="6">6:00</option>
+                                        <option value ="7">7:00</option>
+                                        <option value ="8">8:00</option>
+                                        <option value ="9">9:00</option>
+                                        <option value ="10">10:00</option>
+                                        <option value ="11">11:00</option>
+                                        <option value ="12">12:00</option>
+                                    </select>
+                                </div>
+                                <div class="timeItem">
+                                    <select id="7EndType">
+                                        <option value ="am">AM</option>
+                                        <option value ="pm">PM</option>
+                                    </select>
+                                </div>    
+                            </div>
+                            
+                        </div>
+                        <div class="timeRow">
+                            <button type="submit" class="btn-md w3-bar" style="width: 200px; margin-left: 250px;">Save Availability</button>
+                        </div>
+                        
+                    </form>
+                    </div>
+                </div>
+                {{/if}}
             </div>
         </div>
     </div>

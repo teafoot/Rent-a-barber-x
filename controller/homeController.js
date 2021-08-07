@@ -21,8 +21,26 @@ module.exports.homePage = async (req, res) => {
     const barbers = await userService.getAllBarbers()
     // console.log({barbers})
 
-    // const appointments = await appointmentService.getAppointmentsWhere({id_user: user.id_user});
-    const appointments = await appointmentService.getAppointmentsWhere({ username: 'adam' });
+    const appointments = [{
+        id_barbershop: "123",
+        id_barber: "123",
+        id_customer: "60fa0eddf7d045431cca532b",
+        appointment_status: "active",
+        datetime: "July 25th, 2021 at 11:30 AM",
+        location: "Located at: 6759 Pinetree Ave, Coquitlam",
+        services: [
+            { name: "Buzzcut", price: "15.00" },
+            { name: "Dye Hair Blue", price: "25.00" },
+            { name: "Beard Trim", price: "7.50" }
+        ],
+        prices: "47.50",
+        payment_status: "complete"
+    }]
+
+    console.log(appointments);
+
+    console.log(user.id_user);
+
     const first = await day.dateGetter.firstDay();
 
     if (user.user_type == 'barber') {
@@ -150,7 +168,6 @@ module.exports.serviceDye = async (req, res) => {
 
     const barbers = await userService.getAllBarbers()
 
-    //const appointments = await appointmentService.getAppointmentsWhere({username: 'adam'});
 
     console.log("Here are appointments:")
 
@@ -184,7 +201,6 @@ module.exports.serviceOther = async (req, res) => {
     console.log(user.id_user);
     const first = await day.dateGetter.firstDay();
     console.log(first);
-    //console.log(firstDay);
 
 
     res.render('serviceOther', {
@@ -202,32 +218,6 @@ module.exports.appointment = async (req, res) => {
 
     const barbershops = await barbershopService.getAllBarbershops()
     const barbershop = await barbershopService.getBarbershopByUserId(req.params.id_user);
-    // var barberID = mongoose.Types.ObjectId(barbershop.id_user)
-
-    //  const barber = await userService.getUserById(barberID);
-
-
-    console.log(barbershop.id_user);
-    //const barber = await userService;
-
-
-    //const appointments = await appointmentService.getAppointmentsWhere({username: 'adam'});
-    console.log("lol")
-    // console.log({profile_id})
-    // console.log(barber);
-    // console.log(barber);
-    //console.log(barber);
-    console.log(barbershop);
-    console.log(req.params);
-    console.log("Here are appointments:")
-
-    console.log("ID:")
-    console.log(user.id_user);
-    console.log(user);
-    const first = await day.dateGetter.firstDay();
-
-    //console.log(firstDay);
-
 
     res.render('createAppointment', {
         layout: 'layout.navbar.handlebars',

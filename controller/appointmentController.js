@@ -8,54 +8,37 @@ const constants = require('../constants/index');
 //app.use(express.urlencoded())
 
 module.exports.createAppointment = async (req, res) => {
-    
-    console.log("made a post")
     let response = { ...constants.defaultServerResponse };
 
-    // console.log(req);
-    // console.log(req.body);
-
     const barbershops = await barbershopService.getAllBarbershops()
-    // console.log({barbershops})
     const barbers = await userService.getAllBarbers()
-    // console.log({barbers})
-   // const appointments = await appointmentService.getAppointmentsWhere({id_user: user.id_user});
-    const appointments = await appointmentService.getAppointmentsWhere({username: 'adam'});
-    try {
+   // const appointments = await appointmentService.getAppointmentsWhere({id_customer: '60fa0eddf7d045431cca532b'});
+    const appointments = [{
+        id_barbershop: "123",
+        id_barber: "123",
+        id_customer: "60fa0eddf7d045431cca532b",
+        appointment_status: "active",
+        datetime: "July 25th, 2021 at 11:30 AM",
+        location: "Located at: 6759 Pinetree Ave, Coquitlam",
+        services: [
+            { name: "Buzzcut", price: "15.00" },
+            { name: "Dye Hair Blue", price: "25.00" },
+            { name: "Beard Trim", price: "7.50" }
+        ],
+        prices: "47.50",
+        payment_status: "complete"
+    }]
         let token = req.cookies._authToken || req.headers.authorization.split('Bearer ')[1];
         req.body.token = token
         console.log(req.body.creationTime)
         data = req.body
-
-        
-
-        
-        
-
         console.log(req.body)
       
-       // const responseFromService = await barbershopService.createBarbershopService(req.body)
-    //    var test = "k"
-    //    while(test != null){
-
-    //    }
         let {creationDate, creationTime, title, price, description } = data;
         console.log(data.creationDate)
 
         console.log(creationDate);
         console.log(creationTime);
-        // console.log({responseFromService})
-
-        response.status = 200;
-       // response.message = constants.barbershopMessage.BARBERSHOP_SERVICE_CREATION_SUCCESS;
-        response.body = responseFromService;
-    } catch (e) {
-        console.log('Something went wrong: Controller: createBarbershopService', e);
-        response.message = e.message;
-    }
-
-    //return res.status(response.status).send(response);
-    
 
     res.render('home', {
         layout: 'layout.navbar.handlebars',
